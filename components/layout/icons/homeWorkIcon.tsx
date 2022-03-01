@@ -1,9 +1,8 @@
 import styles from './icons.module.scss'
 
-type Props = {
-  props: { className: string }
-}
-export function HomeWorkIcon({ className = '' }): JSX.Element {
+export const HomeWorkIcon: React.FC<React.SVGProps<SVGSVGElement>> = ({
+  className = '',
+}) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

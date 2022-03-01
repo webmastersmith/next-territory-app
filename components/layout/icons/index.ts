@@ -1,1 +1,1 @@
-export * from './homeWork'
+export * from './homeWorkIcon'

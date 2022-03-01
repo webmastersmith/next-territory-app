@@ -2,9 +2,12 @@
   display: flex;
   align-items: center;
   margin-bottom: 2rem;
-  padding: 1rem;
-  font-size: 3rem;
-  font-weight: bold;
+  padding: 1rem 1.5rem;
+  h1 {
+    font-weight: 200;
+    margin-left: 2rem;
+    font-size: 3.5rem;
+  }
 }
 .homeWorkSvg {
   color: grey;
