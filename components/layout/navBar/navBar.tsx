@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
-import Image from 'next/image'
+// import Image from 'next/image'
+import Link from 'next/link'
 import { HomeWorkIcon } from 'components'
 import styles from './navBar.module.scss'
 
@@ -19,7 +20,11 @@ import styles from './navBar.module.scss'
 export const NavBar: NextPage = () => {
   return (
     <div className={styles.navBar}>
-      <HomeWorkIcon className={styles.homeWorkSvg} />
+      <Link href="/">
+        <a>
+          <HomeWorkIcon className={styles.homeWorkSvg} />
+        </a>
+      </Link>
       <h1>Lufkin Territory Viewer</h1>
     </div>
   )
