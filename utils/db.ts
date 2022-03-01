@@ -1,6 +1,6 @@
 import { MongoClient } from 'mongodb'
 
-export async function getClient(): Promise<MongoClient> {
+export function getClient(): MongoClient {
   return new MongoClient(process.env.MONGODB as string)
 }
 
