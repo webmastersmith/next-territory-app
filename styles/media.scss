@@ -1,0 +1,33 @@
+// typical device sizes
+// Mobile S - 320px
+// Mobile M - 375px
+// Mobile L - 425px
+// Tablet - 768px  //landscape: 1024
+// Laptop - 1024px
+// Laptop L - 1440px
+// 4K - 2560px
+@mixin sm {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+@mixin md {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+@mixin lg {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+@mixin xl {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+@mixin xl2 {
+  @media (min-width: 1536px) {
+    @content;
+  }
+}

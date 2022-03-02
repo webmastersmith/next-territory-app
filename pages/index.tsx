@@ -17,7 +17,6 @@ const HomePage: NextPage<Props> = ({ files }) => {
       <NavBar />
 
       <main className={styles.main}>
-        <h1 className={styles.title}>Choose your territory</h1>
         <NumberBlock files={files} />
       </main>
 
