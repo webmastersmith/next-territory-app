@@ -6,6 +6,12 @@
 // Laptop - 1024px
 // Laptop L - 1440px
 // 4K - 2560px
+
+@mixin xs {
+  @media (min-width: 425px) {
+    @content;
+  }
+}
 @mixin sm {
   @media (min-width: 640px) {
     @content;

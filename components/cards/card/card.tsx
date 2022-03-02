@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 import { OwnerType } from 'types'
 import { CardBody, CardFooter, CardHeader } from 'components'
-//import styles from './card.module.scss'
+import styles from './card.module.scss'
 
 interface Props {
   owner: OwnerType
@@ -9,10 +9,12 @@ interface Props {
 
 export const Card: NextPage<Props> = ({ owner }) => {
   return (
-    <div>
+    <div className={styles.container}>
       <CardHeader owner={owner} />
-      <CardBody owner={owner} />
-      <CardFooter owner={owner} />
+      <div className={styles.cardBodyWrapper}>
+        <CardBody owner={owner} />
+        <CardFooter owner={owner} />
+      </div>
     </div>
   )
 }

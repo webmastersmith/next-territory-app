@@ -99,7 +99,23 @@ h6 {
 /* Bellow my custom addons*/
 /* to use variables: var(--red, fallback) */
 :root {
-  --red: #77002e;
+  // colors
+  --textColor: #06070e;
+  --mediumGreen: #10b981;
+  --borderGrey: #6b7280;
+  --treeGreen: #059669;
+
+  --borderRadius: 1.5rem;
+  --background: #f3f4f6;
+  --cardBackground: #fff;
+  --cardImageBackground: #e5e7eb;
+  --exempt: var(--mediumGreen);
+  --number: var(--mediumGreen);
+  --numberText: #000;
+  --border: var(--borderGrey);
+  --money: var(--treeGreen);
+  --boxShadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
   --single-shadow: 0 6px 6px hsl(0deg 0% 0% / 0.3);
 }
 

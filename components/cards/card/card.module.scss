@@ -1,0 +1,26 @@
+@import 'styles/mixins.scss';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 800px;
+  height: min-content;
+  position: relative;
+  background-color: var(--cardBackground);
+  border-radius: var(--borderRadius);
+  box-shadow: var(--boxShadow);
+  margin: 2rem 0.5rem;
+  @include md {
+    margin: 3rem 0.5rem;
+  }
+}
+.cardBodyWrapper {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 0.25rem;
+  padding-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}

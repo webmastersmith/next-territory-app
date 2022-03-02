@@ -1,0 +1,18 @@
+@import 'styles/mixins.scss';
+
+.container {
+  height: 100vh;
+  padding: 0 0.25rem;
+  margin: 0 auto;
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+
+  @include xl {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+  @include xl2 {
+    gap: 3rem;
+  }
+}

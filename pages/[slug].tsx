@@ -8,8 +8,6 @@ interface Props {
 }
 
 const Territory: NextPage<Props> = ({ owners }) => {
-  console.log(owners[0])
-
   return (
     <div>
       <NavBar />
