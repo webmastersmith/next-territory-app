@@ -3,7 +3,7 @@ export interface OwnerType {
   landId: string
   ownerId: string
   allTrue: boolean
-  exemptions: string[]
+  exemptions: Exemption[]
   nameDeedSame: boolean
   addressSame: boolean
   name: string
@@ -30,6 +30,10 @@ export interface OwnerType {
   phoneNumbers: PhoneNumbers[]
 }
 
+type Exemption = {
+  name: string
+  description: string
+}
 type PhoneNumbers = {
   _id: string
   name: string

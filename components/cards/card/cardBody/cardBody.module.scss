@@ -1,0 +1,15 @@
+.size {
+  --size: 1.5rem;
+  width: var(--size);
+  height: var(--size);
+  fill: var(--borderGrey);
+  // fill: var(--textColor);
+  // color: #000;
+  // color: var(--textColor);
+  color: var(--borderGrey);
+}
+.cardBodyWrapper {
+  svg {
+    @extend .size;
+  }
+}
