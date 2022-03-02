@@ -1,17 +1,20 @@
 import type { NextPage, GetStaticProps, GetStaticPaths } from 'next'
 import { getClient, listCollection } from 'utils'
-import { NavBar } from 'components'
+import { NavBar, Cards } from 'components'
 import { OwnerType } from 'types'
 
 interface Props {
-  owners: string
+  owners: OwnerType[]
 }
 
 const Territory: NextPage<Props> = ({ owners }) => {
+  console.log(owners[0])
+
   return (
     <div>
       <NavBar />
-      <h1>Territory {JSON.stringify(owners, null, 2)}</h1>
+      <h1>Territory {owners[0]?.territoryNumber}</h1>
+      <Cards owners={owners} />
     </div>
   )
 }
@@ -23,22 +26,26 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { slug } = params as { slug: string }
 
   const client = getClient()
-  let owners: any = []
   try {
     await client.connect()
-    const ownersCollection = client.db('Lufkin_TerritoryDB').collection(slug)
-    owners = await ownersCollection.find({}).toArray()
+    const ownersCollection = client
+      .db('Lufkin_TerritoryDB')
+      .collection<OwnerType>(slug)
+    const owners = await ownersCollection.find({}).toArray()
+    return {
+      props: {
+        owners,
+      },
+    }
   } catch (e) {
     console.error(e)
+    return {
+      props: {
+        owners: [],
+      },
+    }
   } finally {
     await client.close()
-  }
-
-  console.log(slug)
-  return {
-    props: {
-      owners,
-    },
   }
 }
 
