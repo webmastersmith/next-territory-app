@@ -1,18 +1,25 @@
 import type { NextPage } from 'next'
-import { OwnerType } from 'types'
+import { OwnerType, Exemption } from 'types'
 import {
   PersonSvg,
   DeedSvg,
   MailingAddressSvg,
   PhysicalAddressSvg,
   ExemptionSvg,
+  CheckSvg,
+  XSvg,
 } from 'icons'
 import styles from './cardBody.module.scss'
+import { Address } from './address'
+import { OwnerDeed } from './ownerDeed'
+import { Exemptions } from './exemptions'
+
+export const uid = () =>
+  new Date().getTime() + Math.random().toString(16).slice(2)
 
 interface Props {
   owner: OwnerType
 }
-//NextPage<Props>
 
 export const CardBody: NextPage<Props> = ({ owner }) => {
   const {
@@ -20,6 +27,7 @@ export const CardBody: NextPage<Props> = ({ owner }) => {
     name,
     deed,
     nameDeedSame,
+    addressSame,
     physicalAddress,
     physicalCity,
     physicalState,
@@ -28,45 +36,83 @@ export const CardBody: NextPage<Props> = ({ owner }) => {
     mailingCity,
     mailingState,
     mailingZip,
+    exemptions,
   } = owner
+
+  const physicalAddr = `${physicalAddress} ${physicalCity} ${physicalState} ${physicalZip}`
+  const mailingAddr = `${mailingAddress} ${mailingCity} ${mailingState} ${mailingZip}`
+
+  type CardBodyData = {
+    svg: React.SVGProps<SVGSVGElement>
+    label: string
+    text: string | Exemption[]
+    checkmark: React.SVGProps<SVGSVGElement> | string
+  }
+
+  const cardBodyData: CardBodyData[] = [
+    {
+      svg: <PersonSvg />,
+      label: 'Owner Name',
+      text: name as string,
+      checkmark: '',
+    },
+    {
+      svg: <DeedSvg />,
+      label: 'Deed',
+      text: deed as string,
+      checkmark: nameDeedSame ? (
+        <CheckSvg className={styles.checkMark} />
+      ) : (
+        <XSvg className={styles.x} />
+      ),
+    },
+    {
+      svg: <PhysicalAddressSvg className={styles.physicalAddressSvg} />,
+      label: 'Physical Address',
+      text: physicalAddr as string,
+      checkmark: addressSame ? (
+        <CheckSvg className={styles.checkMark} />
+      ) : (
+        <XSvg className={styles.x} />
+      ),
+    },
+    {
+      svg: <MailingAddressSvg />,
+      label: 'Mailing Address',
+      text: mailingAddr as string,
+      checkmark: addressSame ? (
+        <CheckSvg className={styles.checkMark} />
+      ) : (
+        <XSvg className={styles.x} />
+      ),
+    },
+    {
+      svg: <ExemptionSvg />,
+      label: 'Tax Exemptions',
+      text: exemptions as Exemption[],
+      checkmark: '',
+    },
+  ]
+
   return (
     <div className={styles.cardBodyWrapper}>
-      <p>{landId}</p>
-      <div className={styles.svgGrid}>
-        <PersonSvg />
-        <div className={styles.info}>
-          <p className={styles.label}>Owner Name</p>
-          <p>{name}</p>
-        </div>
-        <p>{''}</p>
+      <p className={styles.landId}>{landId}</p>
 
-        <DeedSvg />
-        <div className={styles.info}>
-          <p className={styles.label}>Deed</p>
-          <p>{deed}</p>
-        </div>
-        <p>{''}</p>
+      <div className={styles.cardBodyGrid}>
+        {cardBodyData.map((bodyData) => {
+          const { label } = bodyData
+          // Owner, Deed
+          if (/owner|deed/i.test(label)) {
+            return <OwnerDeed bodyData={bodyData} key={uid()} />
+          }
 
-        <PhysicalAddressSvg />
-        <div className={styles.info}>
-          <p className={styles.label}>Physical Address</p>
-          <p>{`${physicalAddress} ${physicalCity} ${physicalState} ${physicalZip}`}</p>
-        </div>
-        <p>{''}</p>
-
-        <MailingAddressSvg />
-        <div className={styles.info}>
-          <p className={styles.label}>Mailing Address</p>
-          <p>{`${mailingAddress} ${mailingCity} ${mailingState} ${mailingZip}`}</p>
-        </div>
-        <p>{''}</p>
-
-        <ExemptionSvg />
-        <div className={styles.info}>
-          <p className={styles.label}>Tax Exemptions</p>
-          <p>{name}</p>
-        </div>
-        <p>{''}</p>
+          // Physical Address, Mailing Address
+          if (label.includes('Address')) {
+            return <Address bodyData={bodyData} owner={owner} key={uid()} />
+          }
+          // Exemptions
+          return <Exemptions bodyData={bodyData} key={uid()} />
+        })}
       </div>
     </div>
   )

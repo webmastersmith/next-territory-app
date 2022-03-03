@@ -1,0 +1,53 @@
+// tooltip
+@keyframes fadeIn {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+// div > p.tooltipText
+.tooltip {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+
+  &:hover .tooltipText {
+    animation: 0.3s fadeIn ease-in;
+    visibility: visible;
+    opacity: 1;
+  }
+}
+.tooltipText {
+  visibility: hidden;
+  white-space: pre;
+  width: 100%;
+  background-color: var(--lightGreen);
+  color: var(--lightRed);
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 10;
+  bottom: 135%;
+  box-shadow: var(--boxShadow);
+  // left: -50%;
+  opacity: 0;
+  &::after {
+    content: '';
+    position: absolute;
+    // top: 90%;
+    left: 5%;
+    margin-left: -6px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: var(--lightGreen) transparent transparent transparent;
+  }
+  &::before {
+    content: '';
+    display: inline-block;
+    height: 24px;
+    vertical-align: middle;
+  }
+}

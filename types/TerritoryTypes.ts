@@ -30,7 +30,7 @@ export interface OwnerType {
   phoneNumbers: PhoneNumbers[]
 }
 
-type Exemption = {
+export type Exemption = {
   name: string
   description: string
 }
