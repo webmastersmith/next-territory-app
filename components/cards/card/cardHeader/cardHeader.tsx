@@ -41,8 +41,9 @@ export const CardHeader: NextPage<Props> = ({ owner, i }) => {
             <Image
               src={`/images/${thumbnail}.jpeg`}
               alt={`image of ${physicalAddress}`}
-              layout="fill"
               priority={i > 1 ? false : true}
+              layout="fill"
+              objectFit="cover"
             />
           ) : (
             <div className={styles.noImage}>image not available</div>

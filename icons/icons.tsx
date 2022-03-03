@@ -10,12 +10,8 @@ export const PersonSvg: React.FC<React.SVGProps<SVGSVGElement>> = ({
       viewBox="0 0 24 24"
       className={className}
     >
-      {/* <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2zm3.61 6.34c1.07 0 1.93.86 1.93 1.93s-.86 1.93-1.93 1.93s-1.93-.86-1.93-1.93c-.01-1.07.86-1.93 1.93-1.93zm-6-1.58c1.3 0 2.36 1.06 2.36 2.36s-1.06 2.36-2.36 2.36s-2.36-1.06-2.36-2.36c0-1.31 1.05-2.36 2.36-2.36zm0 9.13v3.75c-2.4-.75-4.3-2.6-5.14-4.96c1.05-1.12 3.67-1.69 5.14-1.69c.53 0 1.2.08 1.9.22c-1.64.87-1.9 2.02-1.9 2.68zM12 20c-.27 0-.53-.01-.79-.04v-4.07c0-1.42 2.94-2.13 4.4-2.13c1.07 0 2.92.39 3.84 1.15C18.28 17.88 15.39 20 12 20z"></path> */}
       <circle cx="12" cy="4" r="2"></circle>
-      <path
-        fill="#888888"
-        d="M19 2H5a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h4l2.29 2.29c.39.39 1.02.39 1.41 0L15 20h4c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 3.3c1.49 0 2.7 1.21 2.7 2.7s-1.21 2.7-2.7 2.7S9.3 9.49 9.3 8s1.21-2.7 2.7-2.7zM18 16H6v-.9c0-2 4-3.1 6-3.1s6 1.1 6 3.1v.9z"
-      ></path>
+      <path d="M19 2H5a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h4l2.29 2.29c.39.39 1.02.39 1.41 0L15 20h4c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 3.3c1.49 0 2.7 1.21 2.7 2.7s-1.21 2.7-2.7 2.7S9.3 9.49 9.3 8s1.21-2.7 2.7-2.7zM18 16H6v-.9c0-2 4-3.1 6-3.1s6 1.1 6 3.1v.9z"></path>
     </svg>
   )
 }
@@ -178,6 +174,66 @@ export const GoogleMapSvg: React.FC<React.SVGProps<SVGSVGElement>> = (
         />
         <circle cx="423" cy="89" r="25" fill="#7d2426" />
       </g>
+    </svg>
+  )
+}
+export const UpArrowSvg: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
+  return (
+    <svg
+      width="1em"
+      height="1em"
+      fill="currentColor"
+      color="currentColor"
+      viewBox="0 0 24 24"
+      {...props}
+    >
+      <path d="m4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8l-8 8z"></path>
+    </svg>
+  )
+}
+
+export const DownArrowSvg: React.FC<React.SVGProps<SVGSVGElement>> = (
+  props
+) => {
+  return (
+    <svg
+      width="1em"
+      height="1em"
+      fill="currentColor"
+      color="currentColor"
+      viewBox="0 0 24 24"
+      {...props}
+    >
+      <path d="m20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8l8-8z"></path>
+    </svg>
+  )
+}
+export const HomeSvg: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
+  return (
+    <svg
+      width="1em"
+      height="1em"
+      fill="currentColor"
+      color="currentColor"
+      viewBox="0 0 24 24"
+      {...props}
+    >
+      <path d="M1 11v10h5v-6h4v6h5V11L8 6z"></path>
+      <path d="M10 3v1.97l7 5V11h2v2h-2v2h2v2h-2v4h6V3H10zm9 6h-2V7h2v2z"></path>
+    </svg>
+  )
+}
+export const MapSvg: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
+  return (
+    <svg
+      width="1em"
+      height="1em"
+      fill="currentColor"
+      color="currentColor"
+      viewBox="0 0 24 24"
+      {...props}
+    >
+      <path d="M12 4c2.2 0 4 1.8 4 4c0 2.1-2.1 5.5-4 7.9c-1.9-2.5-4-5.8-4-7.9c0-2.2 1.8-4 4-4m0-2C8.7 2 6 4.7 6 8c0 4.5 6 11 6 11s6-6.6 6-11c0-3.3-2.7-6-6-6m0 4c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2m8 13c0 2.2-3.6 4-8 4s-8-1.8-8-4c0-1.3 1.2-2.4 3.1-3.2l.6.9c-1 .5-1.7 1.1-1.7 1.8c0 1.4 2.7 2.5 6 2.5s6-1.1 6-2.5c0-.7-.7-1.3-1.8-1.8l.6-.9c2 .8 3.2 1.9 3.2 3.2Z"></path>
     </svg>
   )
 }

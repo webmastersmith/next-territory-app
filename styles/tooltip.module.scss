@@ -9,7 +9,7 @@
 }
 
 // div > p.tooltipText
-.tooltip {
+%tooltip {
   position: relative;
   display: inline-block;
   width: 100%;
@@ -19,35 +19,49 @@
     visibility: visible;
     opacity: 1;
   }
-}
-.tooltipText {
-  visibility: hidden;
-  white-space: pre;
-  width: 100%;
-  background-color: var(--lightGreen);
-  color: var(--lightRed);
-  border-radius: 6px;
-  padding: 5px;
-  position: absolute;
-  z-index: 10;
-  bottom: 135%;
-  box-shadow: var(--boxShadow);
-  // left: -50%;
-  opacity: 0;
-  &::after {
-    content: '';
+  .tooltipText {
+    visibility: hidden;
+    white-space: pre;
+    width: 100%;
+    background-color: var(--lightGreen);
+    color: var(--lightRed);
+    border-radius: 6px;
+    padding: 5px;
     position: absolute;
-    // top: 90%;
-    left: 5%;
-    margin-left: -6px;
-    border-width: 10px;
-    border-style: solid;
-    border-color: var(--lightGreen) transparent transparent transparent;
+    z-index: 10;
+    bottom: 135%;
+    box-shadow: var(--boxShadow);
+    // left: -50%;
+    opacity: 0;
+    &::after {
+      content: '';
+      position: absolute;
+      // top: 90%;
+      left: 5%;
+      margin-left: -6px;
+      border-width: 10px;
+      border-style: solid;
+      border-color: var(--lightGreen) transparent transparent transparent;
+    }
+    &::before {
+      content: '';
+      display: inline-block;
+      height: 24px;
+      vertical-align: middle;
+    }
   }
-  &::before {
-    content: '';
-    display: inline-block;
-    height: 24px;
-    vertical-align: middle;
+}
+
+.tooltipExemptions {
+  @extend %tooltip;
+}
+.tooltipButtons {
+  @extend %tooltip;
+  .tooltipText {
+    text-align: center;
+    &::after {
+      top: 35px;
+      left: 50%;
+    }
   }
 }

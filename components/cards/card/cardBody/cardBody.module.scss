@@ -25,6 +25,7 @@
 }
 
 .cardBodyGrid {
+  margin-top: 2rem;
   display: grid;
   gap: 1.5rem 0rem;
   grid-template-columns: var(--size) 1fr var(--size);

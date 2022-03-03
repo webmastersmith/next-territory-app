@@ -1,0 +1,83 @@
+%btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s ease all;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-radius: 2px;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  position: relative;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    color: #fff;
+    z-index: 2;
+    cursor: pointer;
+    &:before {
+      transition: 0.5s all ease;
+      left: 0;
+      right: 0;
+      opacity: 1;
+    }
+  }
+  &:before {
+    transition: 0.5s all ease;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    right: 50%;
+    bottom: 0;
+    opacity: 0;
+    content: '';
+    z-index: -1;
+  }
+}
+
+.showButton {
+  @extend %btn;
+  background-color: #f4fff9;
+  color: var(--showButton);
+  border: 2px solid var(--showButton);
+  width: 70%;
+  &:hover {
+    color: #f4fff9;
+  }
+
+  &:before {
+    background-color: var(--showButton);
+  }
+}
+
+.homeButton {
+  @extend %btn;
+  width: 100%;
+  background-color: #ffd289;
+  color: var(--homeButton);
+  border: 2px solid var(--homeButton);
+  &:hover {
+    color: #ffd289;
+  }
+  &:before {
+    background-color: var(--homeButton);
+  }
+}
+
+.mapButton {
+  @extend %btn;
+  width: 100%;
+  background-color: #8fbfe7;
+  color: var(--mapButton);
+  border: 2px solid var(--mapButton);
+  &:hover {
+    color: #8fbfe7;
+  }
+  &:before {
+    background-color: var(--mapButton);
+  }
+}

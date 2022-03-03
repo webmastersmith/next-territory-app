@@ -33,7 +33,7 @@ export const Exemptions: NextPage<Props> = ({ bodyData }) => {
         <div className={styles.tooltip}>
           <p className={styles.label}>{label}</p>
 
-          <div className={classes.tooltip}>
+          <div className={classes.tooltipExemptions}>
             <span className={classes.tooltipText}>
               {`EXEMPTION CODES:\n${exemptText.join('')}`}
             </span>
