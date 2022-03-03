@@ -1,15 +1,45 @@
-.size {
-  --size: 1.5rem;
-  width: var(--size);
-  height: var(--size);
-  fill: var(--borderGrey);
-  // fill: var(--textColor);
-  // color: #000;
-  // color: var(--textColor);
-  color: var(--borderGrey);
-}
+// .size {
+// }
 .cardBodyWrapper {
-  svg {
-    @extend .size;
+  --size: 1.5rem;
+
+  p {
+    font-size: 0.75rem;
+    text-align: center;
   }
+  svg {
+    // @extend .size;
+    width: var(--size);
+    height: var(--size);
+    fill: var(--borderGrey);
+    // fill: var(--textColor);
+    // color: #000;
+    // color: var(--textColor);
+    color: var(--borderGrey);
+    margin-top: 1.5rem;
+  }
+}
+
+.svgGrid {
+  display: grid;
+  grid-template-columns: var(--size) 1fr var(--size);
+  grid-template-rows: repeat(5, 1fr);
+  align-items: end;
+}
+.info {
+  // justify-self: start;
+  // align-self: center;
+  display: flex;
+  flex-direction: column;
+  // justify-content: center;
+  align-items: flex-start;
+  padding-left: 0.5rem;
+  position: relative;
+}
+.label {
+  margin-top: 1rem;
+  font-size: 0.75rem;
+  color: var(--borderGrey);
+  position: absolute;
+  top: -30px;
 }
