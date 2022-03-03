@@ -11,8 +11,8 @@ export const Cards: NextPage<Props> = ({ owners }) => {
   return (
     <div className={styles.container}>
       {owners &&
-        owners.map((owner) => {
-          return <Card owner={owner} key={owner._id} />
+        owners.map((owner, i) => {
+          return <Card owner={owner} key={owner._id} i={i} />
         })}
     </div>
   )

@@ -5,10 +5,10 @@ import styles from './cardHeader.module.scss'
 
 interface Props {
   owner: OwnerType
+  i: number
 }
-//NextPage<Props>
 
-export const CardHeader: NextPage<Props> = ({ owner }) => {
+export const CardHeader: NextPage<Props> = ({ owner, i }) => {
   const {
     coordinates: coords,
     physicalAddress,
@@ -32,12 +32,17 @@ export const CardHeader: NextPage<Props> = ({ owner }) => {
       rel="noreferrer"
     >
       <div className={styles.outerImageWrapper}>
-        <div className={styles.innerImageWrapper}>
+        <div
+          className={styles.innerImageWrapper}
+          style={{ position: 'relative', width: '100%', height: '400px' }}
+        >
           {thumbnail ? (
             // eslint-disable-next-line @next/next/no-img-element
-            <img
+            <Image
               src={`/images/${thumbnail}.jpeg`}
               alt={`image of ${physicalAddress}`}
+              layout="fill"
+              priority={i > 1 ? false : true}
             />
           ) : (
             <div className={styles.noImage}>image not available</div>
