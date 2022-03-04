@@ -76,3 +76,12 @@
   display: flex;
   justify-content: space-between;
 }
+.phoneNotFound {
+  .phoneBook {
+    fill: var(--fireEngineRed);
+    display: inline;
+    margin-left: 0.5rem;
+    position: relative;
+    top: 2px;
+  }
+}

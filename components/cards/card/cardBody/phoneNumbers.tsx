@@ -3,6 +3,7 @@ import styles from './cardBody.module.scss'
 import { PhoneNumber, Contact } from 'types'
 import { uid } from 'components'
 import React from 'react'
+import { PhoneBookSvg } from 'icons'
 
 type BodyData = {
   svg: React.SVGProps<SVGSVGElement>
@@ -43,7 +44,16 @@ export const PhoneNumbers: NextPage<Props> = ({ bodyData }) => {
             )
           })
         ) : (
-          <p>No phone number found</p>
+          <p className={styles.phoneNotFound}>
+            No phone number found
+            <a
+              href={`https://www.consolidatedlocal.com/lufkin,tx/white-pages/white-pages/ksort:a`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span>{<PhoneBookSvg className={styles.phoneBook} />}</span>
+            </a>
+          </p>
         )}
       </div>
       <p>{checkmark}</p>

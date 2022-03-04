@@ -114,7 +114,6 @@ export const CardBody: NextPage<Props> = ({ owner }) => {
           if (/owner|deed/i.test(label)) {
             return <OwnerDeed bodyData={bodyData} key={uid()} />
           }
-
           // Physical Address, Mailing Address
           if (label.includes('Address')) {
             return <Address bodyData={bodyData} owner={owner} key={uid()} />
