@@ -27,19 +27,19 @@ export interface OwnerType {
   urlOwnerDetails: string
   urlLandMap: string
   territoryNumber: string
-  phoneNumbers: PhoneNumbers[]
+  phoneNumbers: PhoneNumber[]
 }
 
 export type Exemption = {
   name: string
   description: string
 }
-type PhoneNumbers = {
+export type PhoneNumber = {
   _id: string
   name: string
-  contacts: Contacts[]
+  contacts: Contact[]
 }
-type Contacts = {
+export type Contact = {
   phoneNumber: string
   address: string
 }

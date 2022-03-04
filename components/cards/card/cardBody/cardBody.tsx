@@ -1,5 +1,5 @@
 import type { NextPage } from 'next'
-import { OwnerType, Exemption } from 'types'
+import { OwnerType, Exemption, PhoneNumber } from 'types'
 import {
   PersonSvg,
   DeedSvg,
@@ -8,11 +8,13 @@ import {
   ExemptionSvg,
   CheckSvg,
   XSvg,
+  PhoneSvg,
 } from 'icons'
 import styles from './cardBody.module.scss'
 import { Address } from './address'
 import { OwnerDeed } from './ownerDeed'
 import { Exemptions } from './exemptions'
+import { PhoneNumbers } from './phoneNumbers'
 
 export const uid = () =>
   new Date().getTime() + Math.random().toString(16).slice(2)
@@ -37,6 +39,7 @@ export const CardBody: NextPage<Props> = ({ owner }) => {
     mailingState,
     mailingZip,
     exemptions,
+    phoneNumbers,
   } = owner
 
   const physicalAddr = `${physicalAddress} ${physicalCity} ${physicalState} ${physicalZip}`
@@ -45,7 +48,7 @@ export const CardBody: NextPage<Props> = ({ owner }) => {
   type CardBodyData = {
     svg: React.SVGProps<SVGSVGElement>
     label: string
-    text: string | Exemption[]
+    text: any
     checkmark: React.SVGProps<SVGSVGElement> | string
   }
 
@@ -92,6 +95,12 @@ export const CardBody: NextPage<Props> = ({ owner }) => {
       text: exemptions as Exemption[],
       checkmark: '',
     },
+    {
+      svg: <PhoneSvg className={styles.phoneSvg} />,
+      label: 'Phone Numbers',
+      text: phoneNumbers as PhoneNumber[],
+      checkmark: '',
+    },
   ]
 
   return (
@@ -111,7 +120,13 @@ export const CardBody: NextPage<Props> = ({ owner }) => {
             return <Address bodyData={bodyData} owner={owner} key={uid()} />
           }
           // Exemptions
-          return <Exemptions bodyData={bodyData} key={uid()} />
+          if (label.includes('Exemptions')) {
+            return <Exemptions bodyData={bodyData} key={uid()} />
+          }
+          // PhoneNumbers
+          if (label.includes('Phone')) {
+            return <PhoneNumbers bodyData={bodyData} key={uid()} />
+          }
         })}
       </div>
     </div>

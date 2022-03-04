@@ -15,7 +15,7 @@ interface Props {
 }
 
 export const Exemptions: NextPage<Props> = ({ bodyData }) => {
-  const { svg, label, text } = bodyData
+  const { svg, label, text, checkmark } = bodyData
   const exemptName: string[] = []
 
   const exemptText: string[] = []
@@ -47,6 +47,7 @@ export const Exemptions: NextPage<Props> = ({ bodyData }) => {
           </div>
         </div>
       </div>
+      <p>{checkmark}</p>
     </>
   )
 }

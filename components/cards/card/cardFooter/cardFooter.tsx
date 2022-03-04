@@ -29,7 +29,7 @@ export const CardFooter: NextPage<Props> = ({ owner }) => {
         )}
       </button>
 
-      {/* Spacer Div */}
+      {/* show property content */}
       <div className={styles.showContent}>
         {show && <ShowProperty owner={owner} />}
       </div>

@@ -29,7 +29,7 @@
   display: grid;
   gap: 1.5rem 0rem;
   grid-template-columns: var(--size) 1fr var(--size);
-  grid-template-rows: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr) auto;
   align-items: end;
 }
 .info {
@@ -62,4 +62,17 @@
 }
 .googleMap {
   margin-left: 0.5rem;
+}
+
+// phoneNumbers
+.phoneSvg {
+  align-self: start;
+}
+.phoneName {
+  font-weight: bold;
+}
+.phoneP {
+  text-indent: 1rem;
+  display: flex;
+  justify-content: space-between;
 }

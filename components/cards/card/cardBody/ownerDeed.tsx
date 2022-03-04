@@ -22,7 +22,7 @@ export const OwnerDeed: NextPage<Props> = ({ bodyData }) => {
           <p className={styles.label}>{label}</p>
           <p>{text}</p>
         </div>
-        <p>{''}</p>
+        <p>{checkmark}</p>
       </>
     )
   } else {
