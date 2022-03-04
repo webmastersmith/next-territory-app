@@ -19,7 +19,7 @@ export interface OwnerType {
   ownership: string
   showOwnerProperty: false
   ownerProperty: OwnerProperty[]
-  improvements: Improvements[]
+  improvements: Improvement[]
   lands: Lands[]
   coordinates: Coordinates
   thumbnail: string
@@ -52,12 +52,16 @@ type OwnerProperty = {
   territory: string
   inTerritory: boolean
 }
-type Improvements = {
+export type Improvement = {
   improvement: string
-  improvementDetails: string
-  stateCode: string
-  sqft: string
+  livingArea: string
   value: string
+  details: Details[]
+}
+type Details = {
+  description: string
+  yearBuild: string
+  sqft: string
 }
 type Lands = {
   landType: string
