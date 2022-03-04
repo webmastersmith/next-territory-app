@@ -3,13 +3,14 @@ import { MongoClient } from 'mongodb'
 export function getClient(): MongoClient {
   return new MongoClient(process.env.MONGODB as string)
 }
+// production
+// const db = 'Lufkin_TerritoryDB'
+// test mode
+const db = 'playgroundDB'
 
 export const listCollection = async (client: MongoClient) => {
   // get collection objects with name
-  const lists = await client
-    .db('Lufkin_TerritoryDB')
-    .listCollections()
-    .toArray()
+  const lists = await client.db(db).listCollections().toArray()
   // turn collection into array of sorted by number files.
   const files = lists
     .map((collection) => collection.name)

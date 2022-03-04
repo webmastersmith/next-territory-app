@@ -26,9 +26,12 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const client = getClient()
   try {
     await client.connect()
-    const ownersCollection = client
-      .db('Lufkin_TerritoryDB')
-      .collection<OwnerType>(slug)
+    // production
+    // const db = 'Lufkin_TerritoryDB'
+    // test mode
+    const db = 'playgroundDB'
+
+    const ownersCollection = client.db(db).collection<OwnerType>(slug)
     const owners = await ownersCollection.find({}).toArray()
     return {
       props: {
