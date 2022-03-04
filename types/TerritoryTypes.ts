@@ -20,7 +20,7 @@ export interface OwnerType {
   showOwnerProperty: false
   ownerProperty: OwnerProperty[]
   improvements: Improvement[]
-  lands: Lands[]
+  lands: Land[]
   coordinates: Coordinates
   thumbnail: string
   error: false
@@ -63,7 +63,7 @@ type Details = {
   yearBuild: string
   sqft: string
 }
-type Lands = {
+export type Land = {
   landType: string
   acres: string
   sqft: string

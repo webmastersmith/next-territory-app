@@ -1,30 +1,30 @@
 import type { NextPage } from 'next'
-import styles from './improvements.module.scss'
+import styles from './showProperty.module.scss'
 import { Improvement } from 'types'
 
 interface Props {
-  improvement: Improvement
+  improve: Improvement
 }
 //NextPage<Props>
 
-export const ImprovementBuilder: NextPage<Props> = ({ improvement }) => {
-  // <ImprovementBlock key={idx}>
-  //   <div className="header">
-  //     <span className="improvement">{improvement}</span>
-  //     <span className="living-area">{livingArea}</span>
-  //     <span className="value">{value}</span>
-  //   </div>
-  //   {details[0]?.description &&
-  //     details.map((detail) => {
-  //       const { description, yearBuild, sqft } = detail
-  //       return (
-  //         <div class="details">
-  //           <span className="description">{description}</span>
-  //           <span className="year-build">Year Built: {yearBuild}</span>
-  //           <span className="sqft">Sqft: {sqft}</span>
-  //         </div>
-  //       )
-  //     })}
-  // </ImprovementBlock>
-  return <div>Improvements</div>
+export const ImprovementBuilder: NextPage<Props> = ({ improve }) => {
+  const { improvement, details, livingArea, value } = improve
+
+  return (
+    <>
+      <span className={styles.improvement}>{improvement}</span>
+      <span className={styles.livingArea}>{livingArea}</span>
+      <span className={styles.value}>{value}</span>
+      {details.map((detail) => {
+        const { description, sqft, yearBuild } = detail
+        return (
+          <>
+            <span className={styles.description}>{description}</span>
+            <span className={styles.yearBuild}>Year Built: {yearBuild}</span>
+            <span className={styles.sqft}>Sqft: {sqft}</span>
+          </>
+        )
+      })}
+    </>
+  )
 }

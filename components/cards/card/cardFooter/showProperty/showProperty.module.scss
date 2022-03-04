@@ -1,4 +1,47 @@
-.propertyGrid {
+.showPropertyContainer {
+  --mb: 0.5rem;
+  h2 {
+    font-weight: bold;
+  }
+}
+
+// Improvements
+.h2Improvements {
+  margin-bottom: calc(-1 * var(--mb));
+}
+.improvementGrid {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
+  margin-bottom: 1rem;
+}
+.improvement,
+.value,
+.livingArea {
+  font-weight: bold;
+  margin-top: var(--mb);
+}
+.value {
+  justify-self: end;
+}
+//details
+.sqft {
+  justify-self: end;
+}
+
+//LANDS
+.landGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin-bottom: 1rem;
+}
+.landHeader {
+  font-weight: bold;
+}
+
+// Price
+.h2Price {
+  margin-top: 1rem;
+}
+.price {
+  color: var(--treeGreen);
 }
