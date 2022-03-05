@@ -1,8 +1,7 @@
 .cardBodyWrapper {
-  --size: 1.5rem;
   svg {
-    width: var(--size);
-    height: var(--size);
+    width: var(--svgSize);
+    height: var(--svgSize);
     fill: var(--borderGrey);
     color: var(--cardBackground);
     // margin-top: 1.5rem;
@@ -28,7 +27,7 @@
   margin-top: 2rem;
   display: grid;
   gap: 1.5rem 0rem;
-  grid-template-columns: var(--size) 1fr var(--size);
+  grid-template-columns: var(--svgSize) 1fr var(--svgSize);
   grid-template-rows: repeat(5, 1fr) auto;
   align-items: end;
 }
@@ -77,11 +76,11 @@
   justify-content: space-between;
 }
 .phoneNotFound {
+  position: relative;
   .phoneBook {
     fill: var(--fireEngineRed);
     display: inline;
     margin-left: 0.5rem;
-    position: relative;
-    top: 2px;
+    position: absolute;
   }
 }

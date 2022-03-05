@@ -1,18 +1,26 @@
 import type { NextPage, GetStaticProps, GetStaticPaths } from 'next'
+import { useState, useEffect, createContext, useContext, useMemo } from 'react'
 import { getClient, listCollection } from 'utils'
 import { NavBar, Cards } from 'components'
 import { OwnerType } from 'types'
+import { useOwnersContext, ThemeContext } from 'store'
 
 interface Props {
   owners: OwnerType[]
 }
 
 const Territory: NextPage<Props> = ({ owners }) => {
+  const [search, setSearch] = useState([])
+  const ownersContext = useOwnersContext(owners)
+
   return (
     <div>
       <NavBar />
       <h1>Territory {owners[0]?.territoryNumber}</h1>
-      <Cards owners={owners} />
+      {/* @ts-ignore */}
+      <ThemeContext.Provider value={ownersContext}>
+        <Cards />
+      </ThemeContext.Provider>
     </div>
   )
 }

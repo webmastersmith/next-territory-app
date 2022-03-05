@@ -16,22 +16,6 @@ export const PersonSvg: React.FC<React.SVGProps<SVGSVGElement>> = ({
   )
 }
 
-export const TrashSvg: React.FC<React.SVGProps<SVGSVGElement>> = ({
-  className = '',
-}) => {
-  return (
-    <svg
-      width="1em"
-      height="1em"
-      fill="currentColor"
-      color="currentColor"
-      viewBox="0 0 24 24"
-      className={className}
-    >
-      <path d="M8 6V4c0-1.1.9-2 2-2h4a2 2 0 0 1 2 2v2h5a1 1 0 0 1 0 2h-1v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8H3a1 1 0 1 1 0-2h5zM6 8v12h12V8H6zm8-2V4h-4v2h4zm-4 4a1 1 0 0 1 1 1v6a1 1 0 0 1-2 0v-6a1 1 0 0 1 1-1zm4 0a1 1 0 0 1 1 1v6a1 1 0 0 1-2 0v-6a1 1 0 0 1 1-1z" />
-    </svg>
-  )
-}
 export const DeedSvg: React.FC<React.SVGProps<SVGSVGElement>> = ({
   className = '',
 }) => {
@@ -264,6 +248,20 @@ export const PhoneBookSvg: React.FC<React.SVGProps<SVGSVGElement>> = (
       {...props}
     >
       <path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.11.89 2 2 2h12c1.11 0 2-.89 2-2V8l-6-6m4 18H6V4h7v5h5v11m-9-6.67c.81 1.57 2.1 2.86 3.67 3.67l1.22-1.23c.16-.16.38-.2.57-.14c.62.2 1.29.32 1.98.32c.31 0 .56.24.56.55v1.95c0 .3-.25.55-.56.55C11.23 19 7 14.77 7 9.56c0-.31.25-.56.56-.56H9.5c.31 0 .56.25.56.56c0 .69.11 1.36.31 1.98c.06.19.02.41-.14.57L9 13.33Z"></path>
+    </svg>
+  )
+}
+export const TrashCanSvg: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
+  return (
+    <svg
+      width="1em"
+      height="1em"
+      fill="currentColor"
+      color="currentColor"
+      viewBox="0 0 256 256"
+      {...props}
+    >
+      <path d="M216 48h-36V36a28.1 28.1 0 0 0-28-28h-48a28.1 28.1 0 0 0-28 28v12H40a12 12 0 0 0 0 24h4v136a20.1 20.1 0 0 0 20 20h128a20.1 20.1 0 0 0 20-20V72h4a12 12 0 0 0 0-24ZM100 36a4 4 0 0 1 4-4h48a4 4 0 0 1 4 4v12h-56Zm88 168H68V72h120Zm-72-100v64a12 12 0 0 1-24 0v-64a12 12 0 0 1 24 0Zm48 0v64a12 12 0 0 1-24 0v-64a12 12 0 0 1 24 0Z"></path>
     </svg>
   )
 }

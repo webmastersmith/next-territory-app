@@ -8,6 +8,7 @@ interface Props {
 }
 export const NumberBlock: NextPage<Props> = ({ files }) => {
   const [mount, setMount] = useState(false)
+  // prevents map loading error before page loads.
   useEffect(() => {
     setMount(true)
   }, [])
@@ -34,6 +35,7 @@ export const NumberBlock: NextPage<Props> = ({ files }) => {
                 <a>
                   <button
                     className={`${styles.glossyButton} ${styles[color[num]]}`}
+                    onClick={() => localStorage.clear()}
                   >
                     {file}
                   </button>

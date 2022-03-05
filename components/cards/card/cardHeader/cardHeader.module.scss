@@ -15,7 +15,20 @@
 
 .outerImageWrapper {
   position: relative;
+  svg {
+    --size: 0.75rem;
+    width: calc(var(--size) + var(--svgSize));
+    height: calc(var(--size) + var(--svgSize));
+  }
 }
+.trash {
+  position: absolute;
+  top: -12px;
+  right: 0;
+  z-index: 1;
+  color: var(--fireEngineRed);
+}
+
 .innerImageWrapper {
   border-top-left-radius: var(--borderRadius);
   border-top-right-radius: var(--borderRadius);
