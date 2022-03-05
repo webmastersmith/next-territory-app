@@ -24,14 +24,17 @@ export const useOwnersContext = (initOwners: OwnerType[]) => {
   const [deleted, setDeleted] = useState<OwnerType[]>([])
   // add functions here and to OwnerContext type.
 
-  const fixLocalStorage = (owners: OwnerType[], deleted: OwnerType[]) => {
-    try {
-      localStorage.setItem('owners', JSON.stringify(owners))
-      localStorage.setItem('deleted', JSON.stringify(deleted))
-    } catch (e) {
-      console.log('Storage Problem: ', e)
-    }
-  }
+  const fixLocalStorage = useCallback(
+    (owners: OwnerType[], deleted: OwnerType[]) => {
+      try {
+        localStorage.setItem('owners', JSON.stringify(owners))
+        localStorage.setItem('deleted', JSON.stringify(deleted))
+      } catch (e) {
+        console.log('Storage Problem: ', e)
+      }
+    },
+    []
+  )
   const deleteCard = useCallback(
     (id: string) => {
       console.log('store -deleteCard ran')
@@ -42,7 +45,7 @@ export const useOwnersContext = (initOwners: OwnerType[]) => {
       setDeleted(_deleted)
       fixLocalStorage(filteredOwners, _deleted)
     },
-    [deleted, owners]
+    [deleted, owners, fixLocalStorage]
   )
 
   const ownersContext = useMemo(() => {
