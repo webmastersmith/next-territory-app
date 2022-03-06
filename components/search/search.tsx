@@ -1,11 +1,12 @@
 import type { NextPage } from 'next'
-//import styles from './search.module.scss'
+import { OwnerType } from 'types'
+import styles from './search.module.scss'
 
-//interface Props {
-//	data: string
-//}
+// interface Props {
+// 	memoSetSearch: () => OwnerType[]
+// }
 //NextPage<Props>
 
-export const Search: NextPage = () => {
+export const SearchForm: NextPage = () => {
   return <div>Search</div>
 }

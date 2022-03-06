@@ -14,14 +14,19 @@ export type OwnerContextType = {
   setOwners: (owners: OwnerType[]) => void
   deleted: OwnerType[]
   setDeleted: (owners: OwnerType[]) => void
+  search: OwnerType[]
+  setSearch: (owners: OwnerType[]) => void
+  loading: boolean
+  setLoading: (bool: boolean) => void
   deleteCard: (id: string) => void
 }
 
 export const useOwnersContext = (initOwners: OwnerType[]) => {
   console.log('store -useOwnersContext ran')
-
   const [owners, setOwners] = useState<OwnerType[]>(initOwners)
   const [deleted, setDeleted] = useState<OwnerType[]>([])
+  const [search, setSearch] = useState<OwnerType[]>([])
+  const [loading, setLoading] = useState<boolean>(false)
   // add functions here and to OwnerContext type.
 
   const fixLocalStorage = useCallback(
@@ -50,8 +55,19 @@ export const useOwnersContext = (initOwners: OwnerType[]) => {
 
   const ownersContext = useMemo(() => {
     console.log('store -useMemo ran')
-    return { owners, setOwners, deleted, setDeleted, deleteCard }
-  }, [owners, setOwners, deleted, setDeleted, deleteCard])
+    return {
+      owners,
+      setOwners,
+      deleted,
+      setDeleted,
+      deleteCard,
+      loading,
+      setLoading,
+      search,
+      setSearch,
+    }
+  }, [owners, deleted, deleteCard, loading, search])
+
   return ownersContext
 }
 

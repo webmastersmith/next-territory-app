@@ -9,11 +9,13 @@ import { useOwners, OwnerContextType } from 'store'
 // }
 
 export const Cards: NextPage = () => {
-  const { owners, setOwners, deleted, setDeleted } =
+  const { owners, setOwners, deleted, setDeleted, search } =
     useOwners() as OwnerContextType
 
   // on initial load, if local storage exist update state. Or create localStorage.
   useEffect(() => {
+    console.log('cards useEffect only on mount ran')
+
     //does localStorage exist?
     if (!localStorage.getItem('owners')) {
       // localStorage does not exist, so add owners and deleted
@@ -33,10 +35,15 @@ export const Cards: NextPage = () => {
 
   return (
     <div className={styles.container}>
-      {owners &&
-        owners.map((owner, i) => {
-          return <Card owner={owner} key={owner._id} i={i} />
-        })}
+      {!!search?.[0]
+        ? !!search?.[0] &&
+          search.map((owner, i) => {
+            return <Card owner={owner} key={owner._id} i={i} />
+          })
+        : !!owners?.[0] &&
+          owners.map((owner, i) => {
+            return <Card owner={owner} key={owner._id} i={i} />
+          })}
     </div>
   )
 }

@@ -9,6 +9,8 @@ interface Props {
 }
 
 export const Card: NextPage<Props> = ({ owner, i }) => {
+  console.log('card ran')
+
   return (
     <div className={styles.container}>
       <CardHeader owner={owner} i={i} />
