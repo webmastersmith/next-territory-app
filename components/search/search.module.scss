@@ -1,0 +1,52 @@
+.searchForm {
+  display: flex;
+
+  margin-top: 2rem;
+  flex-direction: column;
+  align-items: center;
+  // @media (min-width: ${sm}) {
+  //   flex-direction: row;
+  //   justify-content: center;
+  //   margin-top: 1rem;
+  // }
+}
+.searchInputDiv {
+  --inputHeight: 2.5rem;
+  position: relative;
+  width: 95%;
+  // @media (min-width: ${sm}) {
+  //   width: 75%;
+  //   max-width: 665px;
+  // }
+
+  // when focus, move up.
+  input:focus::placeholder {
+    transition: transform 1000ms;
+    transform: translateY(-2.1rem);
+    opacity: 1;
+  }
+  // when focus leaves, transition back to start.
+  input::placeholder {
+    transition: transform 1000ms;
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  input {
+    width: 100%;
+    height: var(--inputHeight);
+    // cursor: text;
+    position: relative;
+    z-index: 1;
+  }
+}
+.xSvg {
+  color: var(--fireEngineRed);
+  width: var(--svgSize);
+  height: var(--svgSize);
+  position: absolute;
+  right: 4px;
+  // center svg in input box
+  top: calc((var(--inputHeight) / 2) - (var(--svgSize) / 2));
+  z-index: 1;
+}

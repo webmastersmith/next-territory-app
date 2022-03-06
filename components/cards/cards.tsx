@@ -9,7 +9,7 @@ import { useOwners, OwnerContextType } from 'store'
 // }
 
 export const Cards: NextPage = () => {
-  const { owners, setOwners, deleted, setDeleted, search } =
+  const { owners, setOwners, deleted, setDeleted, search, searchMode } =
     useOwners() as OwnerContextType
 
   // on initial load, if local storage exist update state. Or create localStorage.
@@ -35,13 +35,11 @@ export const Cards: NextPage = () => {
 
   return (
     <div className={styles.container}>
-      {!!search?.[0]
-        ? !!search?.[0] &&
-          search.map((owner, i) => {
+      {searchMode
+        ? search.map((owner, i) => {
             return <Card owner={owner} key={owner._id} i={i} />
           })
-        : !!owners?.[0] &&
-          owners.map((owner, i) => {
+        : owners.map((owner, i) => {
             return <Card owner={owner} key={owner._id} i={i} />
           })}
     </div>

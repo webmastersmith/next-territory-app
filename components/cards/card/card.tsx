@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
 import { OwnerType } from 'types'
+import { memo } from 'react'
 import { CardBody, CardFooter, CardHeader } from 'components'
 import styles from './card.module.scss'
 
@@ -8,7 +9,7 @@ interface Props {
   i: number
 }
 
-export const Card: NextPage<Props> = ({ owner, i }) => {
+const _Card: NextPage<Props> = ({ owner, i }) => {
   console.log('card ran')
 
   return (
@@ -21,3 +22,4 @@ export const Card: NextPage<Props> = ({ owner, i }) => {
     </div>
   )
 }
+export const Card = memo(_Card)

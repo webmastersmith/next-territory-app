@@ -16,17 +16,20 @@ export type OwnerContextType = {
   setDeleted: (owners: OwnerType[]) => void
   search: OwnerType[]
   setSearch: (owners: OwnerType[]) => void
+  searchMode: boolean
+  setSearchMode: (bool: boolean) => void
   loading: boolean
   setLoading: (bool: boolean) => void
   deleteCard: (id: string) => void
-  searchOwners: (word: string) => void
+  searchOwners: (word: string) => boolean
 }
 
-export const useOwnersContext = (initOwners: OwnerType[]) => {
-  console.log('store -useOwnersContext ran')
+export const useOwnersContext = (initOwners: OwnerType[] = []) => {
+  console.log('store -Main fn useOwnersContext ran')
   const [owners, setOwners] = useState<OwnerType[]>(initOwners)
   const [deleted, setDeleted] = useState<OwnerType[]>([])
   const [search, setSearch] = useState<OwnerType[]>([])
+  const [searchMode, setSearchMode] = useState<boolean>(false)
   const [loading, setLoading] = useState<boolean>(false)
   // add functions here and to OwnerContext type.
 
@@ -49,8 +52,10 @@ export const useOwnersContext = (initOwners: OwnerType[]) => {
       if (text === '') {
         setSearch([])
         setLoading(false)
-        return
+        setSearchMode(false)
+        return false
       }
+      setLoading(true)
       // filter against search text.
       const searchOwners = owners.filter((owner) => {
         const {
@@ -89,10 +94,10 @@ export const useOwnersContext = (initOwners: OwnerType[]) => {
           .toLowerCase()
         return all.includes(text.toLowerCase())
       })
-      if (searchOwners.length < 1) {
-        return false
-      }
+      // return what was found.
       setSearch(searchOwners)
+      setLoading(false)
+      setSearchMode(true)
       return true
     },
     [owners]
@@ -103,6 +108,9 @@ export const useOwnersContext = (initOwners: OwnerType[]) => {
       console.log('store -deleteCard ran')
       const deletedOwner = owners.filter((owner) => id === owner.landId)
       const filteredOwners = owners.filter((owner) => id !== owner.landId)
+      // if card is deleted in 'searchMode' card in search array is removed.
+      // this will not effect the 'deleted' array, because the card is removed from
+      // the owners array and added to deleted array.
       const filteredSearch = search.filter((owner) => id !== owner.landId)
       const _deleted = [...deletedOwner, ...deleted]
       setOwners(filteredOwners)
@@ -126,8 +134,10 @@ export const useOwnersContext = (initOwners: OwnerType[]) => {
       search,
       setSearch,
       searchOwners,
+      searchMode,
+      setSearchMode,
     }
-  }, [owners, deleted, deleteCard, loading, search, searchOwners])
+  }, [owners, deleted, deleteCard, loading, search, searchOwners, searchMode])
 
   return ownersContext
 }

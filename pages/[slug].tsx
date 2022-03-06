@@ -3,6 +3,7 @@ import { getClient, listCollection } from 'utils'
 import { NavBar, Cards, SearchForm } from 'components'
 import { OwnerType } from 'types'
 import { useOwnersContext, ThemeContext } from 'store'
+import { CircleSvg } from 'icons'
 
 interface Props {
   owners: OwnerType[]
@@ -14,8 +15,9 @@ const Territory: NextPage<Props> = ({ owners }) => {
   return (
     <div>
       <NavBar />
-      <h1>Territory {owners?.[0]?.territoryNumber}</h1>
       <ThemeContext.Provider value={store}>
+        <h1>Territory {owners?.[0]?.territoryNumber}</h1>
+        <CircleSvg />
         <SearchForm />
         <Cards />
       </ThemeContext.Provider>
