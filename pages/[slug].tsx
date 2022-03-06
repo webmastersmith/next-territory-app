@@ -15,8 +15,8 @@ const Territory: NextPage<Props> = ({ owners }) => {
     <div>
       <NavBar />
       <h1>Territory {owners?.[0]?.territoryNumber}</h1>
-      <SearchForm />
       <ThemeContext.Provider value={store}>
+        <SearchForm />
         <Cards />
       </ThemeContext.Provider>
     </div>
