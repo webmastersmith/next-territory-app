@@ -1,0 +1,15 @@
+.circleContainer {
+  --circleSize: calc(1rem + var(--svgSize));
+  position: relative;
+  display: inline-block;
+}
+.circleSvg {
+  width: var(--circleSize);
+  height: var(--circleSize);
+  display: inline;
+}
+.circleSvgText {
+  position: absolute;
+  top: 0;
+  right: 0;
+}

@@ -282,28 +282,14 @@ export const X2Svg: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
 export const CircleSvg: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
   return (
     <svg
-      width="10rem"
-      height="10rem"
+      width="1em"
+      height="1em"
       fill="currentColor"
       color="currentColor"
-      viewBox="0 0 110, 110"
+      viewBox="0 0 24, 24"
       {...props}
     >
-      {/* <path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10s10-4.47 10-10S17.53 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8s8 3.58 8 8s-3.58 8-8 8z"></path> */}
-      <circle
-        cx="50"
-        cy="55"
-        r="45"
-        fill="none"
-        stroke="#F0CE01"
-        strokeWidth="4"
-      />
-      <text textAnchor={'middle'} dominantBaseline={'middle'} x="50%" y="50%">
-        Circle Text
-      </text>
+      <path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10s10-4.47 10-10S17.53 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8s8 3.58 8 8s-3.58 8-8 8z"></path>
     </svg>
   )
-}
-{
-  /* <svg width="1em" height="1em" viewBox="0 0 24 24"></svg> */
 }
