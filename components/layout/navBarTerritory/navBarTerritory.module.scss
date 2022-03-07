@@ -1,27 +1,37 @@
+@import 'styles/mixins.scss';
+
 .header {
-  --size: 4rem;
-  --pad: 1rem;
-  height: calc(var(--pad) * 2 + var(--size));
+  --headerIconSize: 4rem;
+  display: grid;
+  gap: 1rem 0;
+  padding: 1rem 0.5rem;
+  @include sm {
+    gap: 0 1rem;
+    grid-template-columns: minmax(220px, 1fr) repeat(2, 1fr);
+    padding: 1rem 0;
+  }
+  align-items: center;
+  justify-items: center;
   background-color: #3d6277;
   margin-bottom: 2rem;
-  display: flex;
-  align-items: center;
 }
 .titleContainer {
   display: flex;
   align-items: center;
-  margin-left: 1rem;
+  // margin-left: 1rem;
   color: white;
+  flex-shrink: 0;
 }
 .territory {
   margin-left: 1rem;
+  flex-shrink: 0;
 }
 .mainIcon {
   display: inline;
   color: white;
-  width: var(--size);
-  height: var(--size);
-  margin-left: 1rem;
+  width: var(--headerIconSize);
+  height: var(--headerIconSize);
+  flex-shrink: 0;
 }
 .numText {
   color: #eaa407;
@@ -31,11 +41,10 @@
 // icons utils
 .iconUtils {
   --size: calc(1rem + var(--svgSize));
-  margin-left: auto;
-  padding-right: var(--pad);
-  display: flex;
-  width: 320px;
-  justify-content: space-evenly;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  justify-items: space-evenly;
   svg {
     width: var(--size);
     height: var(--size);

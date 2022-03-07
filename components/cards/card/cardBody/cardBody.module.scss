@@ -1,4 +1,9 @@
+@import 'styles/mixins.scss';
+
 .cardBodyWrapper {
+  --fontSM: 0.5rem;
+  --fontMD: 0.75rem;
+  --fontNormal: 1rem;
   svg {
     width: var(--svgSize);
     height: var(--svgSize);
@@ -19,7 +24,7 @@
 }
 
 .landId {
-  font-size: 0.75rem;
+  font-size: var(--fontMD);
   text-align: center;
 }
 
@@ -34,11 +39,19 @@
 .info {
   padding-left: 0.5rem;
   position: relative;
+  font-size: var(--fontSM);
+  @include xs {
+    font-size: var(--fontMD);
+  }
+  @include sm {
+    font-size: unset;
+  }
 }
 .label {
-  // margin-top: 1rem;
-  font-size: 0.75rem;
-  // font-weight: 400;
+  font-size: var(--fontSM);
+  @include xs {
+    font-size: var(--fontMD);
+  }
   color: var(--borderGrey);
   position: absolute;
   top: -15px;

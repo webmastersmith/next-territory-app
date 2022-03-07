@@ -2,7 +2,7 @@ import type { NextPage } from 'next'
 import { useState, useEffect } from 'react'
 import styles from './navBarTerritory.module.scss'
 import { useOwners, OwnerContextType } from 'store'
-import { HomeWorkIcon } from 'components'
+import { HomeWorkIcon, SearchForm } from 'components'
 import { PrinterSvg, SaveSvg, TrashCanSvg, SortAZSvg, Sort09Svg } from 'icons'
 import { OwnerType } from 'types'
 
@@ -44,21 +44,26 @@ export const NavBarTerritory: NextPage = () => {
         </div>
       </div>
 
+      <SearchForm />
+
       <div className={styles.iconUtils}>
-        <a
-          href={URL.createObjectURL(
-            new Blob(print(searchMode ? search : owners), {
-              type: 'text/plain',
-            })
-          )}
-          target="_blank"
-          download={`Territory_${owners[0].territoryNumber}.txt`}
-          rel="noreferrer"
-          className="tooltip-bottom"
-          data-tooltip="Print Addresses"
-        >
-          <PrinterSvg />
-        </a>
+        {/* make sure window object is available, before rendering */}
+        {typeof window !== 'undefined' && (
+          <a
+            href={URL.createObjectURL(
+              new Blob(print(searchMode ? search : owners), {
+                type: 'text/plain',
+              })
+            )}
+            target="_blank"
+            download={`Territory_${owners[0].territoryNumber}.txt`}
+            rel="noreferrer"
+            className="tooltip-bottom"
+            data-tooltip="Print Addresses"
+          >
+            <PrinterSvg />
+          </a>
+        )}
 
         <SaveSvg />
         {isSort ? (

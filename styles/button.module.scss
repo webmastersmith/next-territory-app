@@ -1,3 +1,5 @@
+@import 'styles/mixins.scss';
+
 %btn {
   display: flex;
   justify-content: center;
@@ -44,7 +46,10 @@
   background-color: #f4fff9;
   color: var(--showButton);
   border: 2px solid var(--showButton);
-  width: 70%;
+  width: 100%;
+  @include sm {
+    width: 70%;
+  }
   &:hover {
     color: #f4fff9;
   }

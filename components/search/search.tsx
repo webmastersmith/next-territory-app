@@ -23,9 +23,11 @@ export const SearchForm: NextPage = () => {
       // console.log('search -handleSubmit return value:', bool)
     }
   }
-  const resetSearchInput = () => {
+  const resetSearchInput = useCallback(() => {
     // only run if change needed
     if (searchMode || search?.[0]) {
+      console.log('search - resetSearchInput ran')
+
       setSearch([])
       setSearchMode(false)
     }
@@ -33,16 +35,21 @@ export const SearchForm: NextPage = () => {
       inputRef.current.value = ''
       inputRef.current.blur()
     }
-  }
+    //eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchMode, search, inputRef])
 
   // for the escape key listener -------------------------------------------------
-  const escFunction = useCallback((event: KeyboardEvent) => {
-    if (event.key === 'Escape') {
-      console.log('search -esc key fn ran')
-      //Do whatever when esc is pressed
-      resetSearchInput()
-    }
-  }, [])
+  const escFunction = useCallback(
+    (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        console.log('search -esc key fn ran')
+        //Do whatever when esc is pressed
+        resetSearchInput()
+      }
+    },
+    [resetSearchInput]
+  )
+
   //watch for event listener to be added, and prevent duplicate event listeners.
   const listenerRef = useRef(false)
   useEffect(() => {
@@ -72,7 +79,10 @@ export const SearchForm: NextPage = () => {
           ref={inputRef}
           placeholder="Search"
         />
-        <X2Svg className={styles.xSvg} onClick={resetSearchInput} />
+        <X2Svg
+          className={styles[searchMode ? 'xSvg' : 'hidden']}
+          onClick={resetSearchInput}
+        />
       </div>
     </form>
   )

@@ -1,5 +1,18 @@
+@import 'styles/mixins.scss';
+
 .showPropertyContainer {
   --mb: 0.5rem;
+  --fontSM: 0.5rem;
+  --fontMD: 0.75rem;
+  --fontNormal: unset;
+  font-size: var(--fontSM);
+  @include xs {
+    font-size: var(--fontMD);
+  }
+  @include sm {
+    font-size: var(--fontNormal);
+  }
+
   h2 {
     font-weight: bold;
   }
