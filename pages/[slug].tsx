@@ -3,7 +3,6 @@ import { getClient, listCollection } from 'utils'
 import { NavBarTerritory, Cards, SearchForm } from 'components'
 import { OwnerType } from 'types'
 import { useOwnersContext, ThemeContext } from 'store'
-import { CircleSvg } from 'icons'
 
 interface Props {
   owners: OwnerType[]

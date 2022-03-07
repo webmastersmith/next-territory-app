@@ -22,6 +22,7 @@ export type OwnerContextType = {
   setLoading: (bool: boolean) => void
   deleteCard: (id: string) => void
   searchOwners: (word: string) => boolean
+  sortNums: (number?: string) => void
 }
 
 export const useOwnersContext = (initOwners: OwnerType[] = []) => {
@@ -121,6 +122,48 @@ export const useOwnersContext = (initOwners: OwnerType[] = []) => {
     [deleted, owners, fixLocalStorage, search]
   )
 
+  const sortNums = useCallback(
+    (number: string = '') => {
+      if (!!number) {
+        console.log('sort ran')
+        const sortedOwners = owners.sort((objA, objB) => {
+          const a = +objA.landId
+          const b = +objB.landId
+          return a - b
+        })
+        setOwners([...sortedOwners])
+
+        if (!!search.length) {
+          const sortedSearch = search.sort((objA, objB) => {
+            const a = +objA.landId
+            const b = +objB.landId
+            return a - b
+          })
+          setSearch([...sortedSearch])
+        }
+
+        // must be alphabet sort
+      } else {
+        const sortedOwners = owners.sort((objA, objB) => {
+          const a = objA.name
+          const b = objB.name
+          return a > b ? 1 : b > a ? -1 : 0
+        })
+        setOwners([...sortedOwners])
+
+        if (!!search.length) {
+          const sortedSearch = search.sort((objA, objB) => {
+            const a = objA.name
+            const b = objB.name
+            return a > b ? 1 : b > a ? -1 : 0
+          })
+          setSearch([...sortedSearch])
+        }
+      }
+    },
+    [owners, search]
+  )
+
   const ownersContext = useMemo(() => {
     console.log('store -useMemo ownersContext object ran')
     return {
@@ -136,8 +179,18 @@ export const useOwnersContext = (initOwners: OwnerType[] = []) => {
       searchOwners,
       searchMode,
       setSearchMode,
+      sortNums,
     }
-  }, [owners, deleted, deleteCard, loading, search, searchOwners, searchMode])
+  }, [
+    owners,
+    deleted,
+    deleteCard,
+    loading,
+    search,
+    searchOwners,
+    searchMode,
+    sortNums,
+  ])
 
   return ownersContext
 }

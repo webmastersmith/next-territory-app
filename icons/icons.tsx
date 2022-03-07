@@ -261,10 +261,11 @@ export const TrashCanSvg: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
       viewBox="0 0 256 256"
       {...props}
     >
-      <path d="M216 48h-36V36a28.1 28.1 0 0 0-28-28h-48a28.1 28.1 0 0 0-28 28v12H40a12 12 0 0 0 0 24h4v136a20.1 20.1 0 0 0 20 20h128a20.1 20.1 0 0 0 20-20V72h4a12 12 0 0 0 0-24ZM100 36a4 4 0 0 1 4-4h48a4 4 0 0 1 4 4v12h-56Zm88 168H68V72h120Zm-72-100v64a12 12 0 0 1-24 0v-64a12 12 0 0 1 24 0Zm48 0v64a12 12 0 0 1-24 0v-64a12 12 0 0 1 24 0Z"></path>
+      <path d="M216 48h-40v-8a24.1 24.1 0 0 0-24-24h-48a24.1 24.1 0 0 0-24 24v8H40a8 8 0 0 0 0 16h8v144a16 16 0 0 0 16 16h128a16 16 0 0 0 16-16V64h8a8 8 0 0 0 0-16ZM96 40a8 8 0 0 1 8-8h48a8 8 0 0 1 8 8v8H96Zm96 168H64V64h128Zm-80-104v64a8 8 0 0 1-16 0v-64a8 8 0 0 1 16 0Zm48 0v64a8 8 0 0 1-16 0v-64a8 8 0 0 1 16 0Z"></path>
     </svg>
   )
 }
+
 export const X2Svg: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
   return (
     <svg
@@ -279,7 +280,21 @@ export const X2Svg: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
     </svg>
   )
 }
-export const CircleSvg: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
+export const PrinterSvg: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
+  return (
+    <svg
+      width="1em"
+      height="1em"
+      fill="currentColor"
+      color="currentColor"
+      viewBox="0 0 256, 256"
+      {...props}
+    >
+      <path d="M210.7 74H198V40a6 6 0 0 0-6-6H64a6 6 0 0 0-6 6v34H45.3C32.5 74 22 83.9 22 96v80a6 6 0 0 0 6 6h30v38a6 6 0 0 0 6 6h128a6 6 0 0 0 6-6v-38h30a6 6 0 0 0 6-6V96c0-12.1-10.5-22-23.3-22ZM70 46h116v28H70Zm116 168H70v-56h116Zm36-44h-24v-18a6 6 0 0 0-6-6H64a6 6 0 0 0-6 6v18H34V96c0-5.5 5.1-10 11.3-10h165.4c6.2 0 11.3 4.5 11.3 10Zm-24-54a10 10 0 1 1-10-10a10 10 0 0 1 10 10Z"></path>
+    </svg>
+  )
+}
+export const SaveSvg: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
   return (
     <svg
       width="1em"
@@ -289,7 +304,49 @@ export const CircleSvg: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
       viewBox="0 0 24, 24"
       {...props}
     >
-      <path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10s10-4.47 10-10S17.53 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8s8 3.58 8 8s-3.58 8-8 8z"></path>
+      <path d="M19.35 10.04A7.49 7.49 0 0 0 12 4C9.11 4 6.6 5.64 5.35 8.04A5.994 5.994 0 0 0 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5c0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5l-5-5h3V9h4v4h3z"></path>
+    </svg>
+  )
+}
+export const SortAZSvg: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
+  return (
+    <svg
+      width="1em"
+      height="1em"
+      fill="currentColor"
+      color="currentColor"
+      viewBox="0 0 16, 16"
+      {...props}
+    >
+      <g>
+        <path
+          fillRule="evenodd"
+          d="M10.082 5.629L9.664 7H8.598l1.789-5.332h1.234L13.402 7h-1.12l-.419-1.371h-1.781zm1.57-.785L11 2.687h-.047l-.652 2.157h1.351z"
+        ></path>
+        <path d="M12.96 14H9.028v-.691l2.579-3.72v-.054H9.098v-.867h3.785v.691l-2.567 3.72v.054h2.645V14zM4.5 2.5a.5.5 0 0 0-1 0v9.793l-1.146-1.147a.5.5 0 0 0-.708.708l2 1.999l.007.007a.497.497 0 0 0 .7-.006l2-2a.5.5 0 0 0-.707-.708L4.5 12.293V2.5z"></path>
+      </g>
+    </svg>
+  )
+}
+
+export const Sort09Svg: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
+  return (
+    <svg
+      width="1em"
+      height="1em"
+      fill="currentColor"
+      color="currentColor"
+      viewBox="0 0 16, 16"
+      {...props}
+    >
+      <g>
+        <path d="M12.438 1.668V7H11.39V2.684h-.051l-1.211.859v-.969l1.262-.906h1.046z"></path>
+        <path
+          fillRule="evenodd"
+          d="M11.36 14.098c-1.137 0-1.708-.657-1.762-1.278h1.004c.058.223.343.45.773.45c.824 0 1.164-.829 1.133-1.856h-.059c-.148.39-.57.742-1.261.742c-.91 0-1.72-.613-1.72-1.758c0-1.148.848-1.835 1.973-1.835c1.09 0 2.063.636 2.063 2.687c0 1.867-.723 2.848-2.145 2.848zm.062-2.735c.504 0 .933-.336.933-.972c0-.633-.398-1.008-.94-1.008c-.52 0-.927.375-.927 1c0 .64.418.98.934.98z"
+        ></path>
+        <path d="M4.5 2.5a.5.5 0 0 0-1 0v9.793l-1.146-1.147a.5.5 0 0 0-.708.708l2 1.999l.007.007a.497.497 0 0 0 .7-.006l2-2a.5.5 0 0 0-.707-.708L4.5 12.293V2.5z"></path>
+      </g>
     </svg>
   )
 }

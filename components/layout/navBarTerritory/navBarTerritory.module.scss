@@ -1,15 +1,45 @@
-.circleContainer {
-  --circleSize: calc(1rem + var(--svgSize));
-  position: relative;
-  display: inline-block;
+.header {
+  --size: 4rem;
+  --pad: 1rem;
+  height: calc(var(--pad) * 2 + var(--size));
+  background-color: #3d6277;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
 }
-.circleSvg {
-  width: var(--circleSize);
-  height: var(--circleSize);
+.titleContainer {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+  color: white;
+}
+.territory {
+  margin-left: 1rem;
+}
+.mainIcon {
   display: inline;
+  color: white;
+  width: var(--size);
+  height: var(--size);
+  margin-left: 1rem;
 }
-.circleSvgText {
-  position: absolute;
-  top: 0;
-  right: 0;
+.numText {
+  color: #eaa407;
+  font-weight: bold;
+}
+
+// icons utils
+.iconUtils {
+  --size: calc(1rem + var(--svgSize));
+  margin-left: auto;
+  padding-right: var(--pad);
+  display: flex;
+  width: 320px;
+  justify-content: space-evenly;
+  svg {
+    width: var(--size);
+    height: var(--size);
+    color: white;
+    fill: white;
+  }
 }
