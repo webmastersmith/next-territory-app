@@ -1,6 +1,6 @@
 import type { NextPage, GetStaticProps, GetStaticPaths } from 'next'
 import { getClient, listCollection, db } from 'utils'
-import { NavBarTerritory, Cards, SearchForm } from 'components'
+import { NavBarTerritory, Cards } from 'components'
 import { OwnerType } from 'types'
 import { useOwnersContext, ThemeContext } from 'store'
 
@@ -15,7 +15,6 @@ const Territory: NextPage<Props> = ({ owners }) => {
     <div>
       <ThemeContext.Provider value={store}>
         <NavBarTerritory />
-        {/* <SearchForm /> */}
         <Cards />
       </ThemeContext.Provider>
     </div>
@@ -31,11 +30,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const client = getClient()
   try {
     await client.connect()
-    // production
-    // const db = 'Lufkin_TerritoryDB'
-    // test mode
-    // const db = 'playgroundDB'
 
+    // db comes from utils
     const ownersCollection = client.db(db).collection<OwnerType>(slug)
     const owners = await ownersCollection.find({}).toArray()
     return {

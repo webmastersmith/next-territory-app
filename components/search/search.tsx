@@ -11,7 +11,7 @@ import { X2Svg } from 'icons'
 //NextPage<Props>
 
 export const SearchForm: NextPage = () => {
-  console.log('search -memo SearchForm ran')
+  // console.log('search -memo SearchForm ran')
   const { searchOwners, search, searchMode, setSearchMode, setSearch } =
     useOwners() as OwnerContextType
   const inputRef = useRef<HTMLInputElement>(null)
@@ -26,7 +26,7 @@ export const SearchForm: NextPage = () => {
   const resetSearchInput = useCallback(() => {
     // only run if change needed
     if (searchMode || search?.[0]) {
-      console.log('search - resetSearchInput ran')
+      // console.log('search - resetSearchInput ran')
 
       setSearch([])
       setSearchMode(false)
@@ -53,10 +53,10 @@ export const SearchForm: NextPage = () => {
   //watch for event listener to be added, and prevent duplicate event listeners.
   const listenerRef = useRef(false)
   useEffect(() => {
-    console.log('search -useEffect ran')
+    // console.log('search -useEffect ran')
     // only add listener if not already existing.
     if (!listenerRef.current) {
-      console.log('search -Event listener added')
+      // console.log('search -Event listener added')
       window.addEventListener('keydown', escFunction, false)
       listenerRef.current = true
     }

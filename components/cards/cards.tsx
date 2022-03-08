@@ -1,12 +1,9 @@
 import type { NextPage } from 'next'
 import { useEffect } from 'react'
-import { Card } from 'components'
+import { Card, uid } from 'components'
 import styles from './cards.module.scss'
 import { useOwners, OwnerContextType } from 'store'
-
-// interface Props {
-//   _owners: OwnerType[]
-// }
+import { motion, AnimatePresence } from 'framer-motion'
 
 export const Cards: NextPage = () => {
   const { owners, setOwners, deleted, setDeleted, search, searchMode } =
@@ -34,14 +31,32 @@ export const Cards: NextPage = () => {
   }, [])
 
   return (
-    <div className={styles.container}>
-      {searchMode
-        ? search.map((owner, i) => {
-            return <Card owner={owner} key={owner._id} i={i} />
-          })
-        : owners.map((owner, i) => {
+    <AnimatePresence exitBeforeEnter>
+      {searchMode ? (
+        <motion.div
+          className={styles.container}
+          initial={{ x: '-100vw' }}
+          animate={{ x: 0 }}
+          exit={{ x: '-100vw' }}
+          key={uid()}
+        >
+          {search.map((owner, i) => {
             return <Card owner={owner} key={owner._id} i={i} />
           })}
-    </div>
+        </motion.div>
+      ) : (
+        <motion.div
+          className={styles.container}
+          initial={{ x: '-100vw' }}
+          animate={{ x: 0 }}
+          exit={{ x: '-100vw' }}
+          key={uid()}
+        >
+          {owners.map((owner, i) => {
+            return <Card owner={owner} key={owner._id} i={i} />
+          })}
+        </motion.div>
+      )}
+    </AnimatePresence>
   )
 }
