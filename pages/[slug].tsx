@@ -1,5 +1,5 @@
 import type { NextPage, GetStaticProps, GetStaticPaths } from 'next'
-import { getClient, listCollection } from 'utils'
+import { getClient, listCollection, db } from 'utils'
 import { NavBarTerritory, Cards, SearchForm } from 'components'
 import { OwnerType } from 'types'
 import { useOwnersContext, ThemeContext } from 'store'
@@ -34,7 +34,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     // production
     // const db = 'Lufkin_TerritoryDB'
     // test mode
-    const db = 'playgroundDB'
+    // const db = 'playgroundDB'
 
     const ownersCollection = client.db(db).collection<OwnerType>(slug)
     const owners = await ownersCollection.find({}).toArray()

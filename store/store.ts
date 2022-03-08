@@ -47,7 +47,7 @@ export const useOwnersContext = (initOwners: OwnerType[] = []) => {
   )
 
   const searchOwners = useCallback(
-    (word: string) => {
+    (word: string = '') => {
       console.log('store -searchOwners fn ran')
       const text = word.trim()
       if (text === '') {

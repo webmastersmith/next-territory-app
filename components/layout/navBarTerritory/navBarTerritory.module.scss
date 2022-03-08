@@ -50,5 +50,11 @@
     height: var(--size);
     color: white;
     fill: white;
+    cursor: pointer;
+  }
+}
+.trashcan {
+  &:hover {
+    fill: var(--fireEngineRed);
   }
 }
