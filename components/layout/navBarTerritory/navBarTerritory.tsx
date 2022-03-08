@@ -13,6 +13,7 @@ import { OwnerType } from 'types'
 
 export const NavBarTerritory: NextPage = () => {
   const [isSort, setIsSort] = useState<boolean>(false)
+  const [myBlob, setMyBlob] = useState('')
   const { owners, searchMode, search, sortNums } =
     useOwners() as OwnerContextType
 
@@ -26,9 +27,36 @@ export const NavBarTerritory: NextPage = () => {
     //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSort])
 
+  useEffect(() => {
+    setMyBlob(
+      URL.createObjectURL(
+        new Blob(print(searchMode ? search : owners), {
+          type: 'text/plain',
+        })
+      )
+    )
+  }, [searchMode, search, owners])
+
   function print(owners: OwnerType[]) {
     return owners.map((owner) => {
-      return `Property ID: ${owner.landId}\r\nName: ${owner.name}\nProperty Address: ${owner.physicalAddress} ${owner.physicalCity} ${owner.physicalState} ${owner.physicalZip}\r\nMailing Address:  ${owner.mailingAddress} ${owner.mailingCity} ${owner.mailingState} ${owner.mailingZip}\r\n-----------------------------------------------\r\n\r\n`
+      const { phoneNumbers } = owner
+      const phoneAddress = phoneNumbers
+        .map((person) => {
+          const { name, contacts } = person
+          const personContact = contacts
+            .map((contact) => {
+              const { address, phoneNumber } = contact
+              const addr = `${address} ${phoneNumber}\r\n`
+              console.log(addr)
+              return addr
+            })
+            .join('')
+          return `${name}\r\n\t${personContact}`
+        })
+        .join(' ')
+      console.log(phoneAddress)
+
+      return `Property ID: ${owner.landId}\r\nName: ${owner.name}\nProperty Address: ${owner.physicalAddress} ${owner.physicalCity} ${owner.physicalState} ${owner.physicalZip}\r\nMailing Address:  ${owner.mailingAddress} ${owner.mailingCity} ${owner.mailingState} ${owner.mailingZip}\r\n${phoneAddress}\r\n-----------------------------------------------\r\n\r\n`
     })
   }
 
@@ -47,23 +75,16 @@ export const NavBarTerritory: NextPage = () => {
       <SearchForm />
 
       <div className={styles.iconUtils}>
-        {/* make sure window object is available, before rendering */}
-        {typeof window !== 'undefined' && (
-          <a
-            href={URL.createObjectURL(
-              new Blob(print(searchMode ? search : owners), {
-                type: 'text/plain',
-              })
-            )}
-            target="_blank"
-            download={`Territory_${owners[0].territoryNumber}.txt`}
-            rel="noreferrer"
-            className="tooltip-bottom"
-            data-tooltip="Print Addresses"
-          >
-            <PrinterSvg />
-          </a>
-        )}
+        <a
+          href={myBlob}
+          target="_blank"
+          download={`Territory_${owners[0].territoryNumber}.txt`}
+          rel="noreferrer"
+          className="tooltip-bottom"
+          data-tooltip="Print Addresses"
+        >
+          <PrinterSvg />
+        </a>
 
         <SaveSvg />
         {isSort ? (
