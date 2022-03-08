@@ -14,7 +14,7 @@ export const Cards: NextPage = () => {
 
   // on initial load, if local storage exist update state. Or create localStorage.
   useEffect(() => {
-    console.log('cards useEffect only on mount ran')
+    // console.log('cards useEffect only on mount ran')
 
     //does localStorage exist?
     if (!localStorage.getItem('owners')) {

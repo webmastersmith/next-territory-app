@@ -10,7 +10,7 @@ interface Props {
 }
 
 const _Card: NextPage<Props> = ({ owner, i }) => {
-  console.log('card ran')
+  // console.log('card ran')
 
   return (
     <div className={styles.container}>

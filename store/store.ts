@@ -26,7 +26,7 @@ export type OwnerContextType = {
 }
 
 export const useOwnersContext = (initOwners: OwnerType[] = []) => {
-  console.log('store -Main fn useOwnersContext ran')
+  // console.log('store -Main fn useOwnersContext ran')
   const [owners, setOwners] = useState<OwnerType[]>(initOwners)
   const [deleted, setDeleted] = useState<OwnerType[]>([])
   const [search, setSearch] = useState<OwnerType[]>([])
@@ -48,7 +48,7 @@ export const useOwnersContext = (initOwners: OwnerType[] = []) => {
 
   const searchOwners = useCallback(
     (word: string = '') => {
-      console.log('store -searchOwners fn ran')
+      // console.log('store -searchOwners fn ran')
       const text = word.trim()
       if (text === '') {
         setSearch([])
@@ -106,7 +106,7 @@ export const useOwnersContext = (initOwners: OwnerType[] = []) => {
 
   const deleteCard = useCallback(
     (id: string) => {
-      console.log('store -deleteCard ran')
+      // console.log('store -deleteCard ran')
       const deletedOwner = owners.filter((owner) => id === owner.landId)
       const filteredOwners = owners.filter((owner) => id !== owner.landId)
       // if card is deleted in 'searchMode' card in search array is removed.
@@ -125,7 +125,7 @@ export const useOwnersContext = (initOwners: OwnerType[] = []) => {
   const sortNums = useCallback(
     (number: string = '') => {
       if (!!number) {
-        console.log('sort ran')
+        // console.log('sort ran')
         const sortedOwners = owners.sort((objA, objB) => {
           const a = +objA.landId
           const b = +objB.landId
@@ -165,7 +165,7 @@ export const useOwnersContext = (initOwners: OwnerType[] = []) => {
   )
 
   const ownersContext = useMemo(() => {
-    console.log('store -useMemo ownersContext object ran')
+    // console.log('store -useMemo ownersContext object ran')
     return {
       owners,
       setOwners,

@@ -31,7 +31,7 @@ export const NumberBlock: NextPage<Props> = ({ files }) => {
             const num = Math.round(Math.random() * 3) //0-5
 
             return (
-              <Link href={`/${file}`} key={file}>
+              <Link href={`/${file}`} key={file} prefetch={false}>
                 <a>
                   <button
                     className={`${styles.glossyButton} ${styles[color[num]]}`}
