@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import Link from 'next/link'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import styles from './navBarTerritory.module.scss'
 import { useOwners, OwnerContextType } from 'store'
 import { HomeWorkIcon, SearchForm } from 'components'
@@ -16,7 +16,7 @@ export const NavBarTerritory: NextPage = () => {
   const [isSort, setIsSort] = useState<boolean>(false)
   const [myBlob, setMyBlob] = useState('')
   const [mySave, setMySave] = useState('')
-  const { owners, searchMode, search, sortNums } =
+  const { owners, searchMode, search, sortNums, loading, setLoading } =
     useOwners() as OwnerContextType
 
   useEffect(() => {
@@ -72,6 +72,13 @@ export const NavBarTerritory: NextPage = () => {
     })
   }
 
+  const handleSort = useCallback(() => {
+    setLoading(true)
+    setTimeout(() => setIsSort(!isSort), 0)
+    setTimeout(() => setLoading(false), 0)
+    //eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isSort])
+
   return (
     <header className={styles.header}>
       <div className={styles.titleContainer}>
@@ -112,9 +119,15 @@ export const NavBarTerritory: NextPage = () => {
         </a>
 
         {isSort ? (
-          <SortAZSvg onClick={() => setIsSort(!isSort)} />
+          <SortAZSvg
+            onClick={handleSort}
+            className={loading ? 'cursorWait' : 'cursorDefault'}
+          />
         ) : (
-          <Sort09Svg onClick={() => setIsSort(!isSort)} />
+          <Sort09Svg
+            onClick={handleSort}
+            className={loading ? 'cursorWait' : 'cursorDefault'}
+          />
         )}
         <Link href={'/'}>
           <a>

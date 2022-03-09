@@ -4,6 +4,7 @@ import { OwnerType } from 'types'
 import styles from './cardHeader.module.scss'
 import { TrashCanSvg } from 'icons'
 import { useOwners, OwnerContextType } from 'store'
+import { useCallback } from 'react'
 
 interface Props {
   owner: OwnerType
@@ -22,14 +23,19 @@ export const CardHeader: NextPage<Props> = ({ owner, i }) => {
   } = owner
   const { deleteCard, setLoading, loading } = useOwners() as OwnerContextType
 
-  const handleClick = (id: string) => {
+  const handleClick = useCallback((id: string) => {
     setLoading(true)
-    deleteCard(id)
-    setLoading(false)
-  }
+    setTimeout(() => deleteCard(id), 0)
+    setTimeout(() => setLoading(false), 0)
+    //eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
-    <div className={styles.outerImageWrapper}>
+    <div
+      className={`${styles.outerImageWrapper} ${
+        loading ? 'cursorWait' : 'cursorDefault'
+      }`}
+    >
       <TrashCanSvg
         className={styles.trash}
         onClick={() => handleClick(landId)}

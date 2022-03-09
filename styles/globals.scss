@@ -136,8 +136,8 @@ h6 {
 }
 
 .cursorWait {
-  cursor: wait;
+  cursor: wait !important;
 }
-.cursorArrow {
-  cursor: unset;
+.cursorDefault {
+  cursor: default;
 }

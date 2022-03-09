@@ -8,7 +8,6 @@ export const Cards: NextPage = () => {
   const { owners, setOwners, search, loading, searchMode } =
     useOwners() as OwnerContextType
   // on initial load, if local storage exist update state. Or create localStorage.
-  console.log(loading)
 
   useEffect(() => {
     // console.log('cards useEffect only on mount ran')
@@ -29,11 +28,7 @@ export const Cards: NextPage = () => {
   }, [])
 
   return (
-    <div
-      className={`${styles.container} ${
-        loading ? 'cursorWait' : 'cursorArrow'
-      }`}
-    >
+    <div className={styles.container}>
       {(searchMode ? search : owners).map((owner, i) => {
         return <Card owner={owner} key={owner._id} i={i} />
       })}

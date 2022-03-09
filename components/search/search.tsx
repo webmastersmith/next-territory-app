@@ -12,8 +12,15 @@ import { X2Svg } from 'icons'
 
 export const SearchForm: NextPage = () => {
   // console.log('search -memo SearchForm ran')
-  const { searchOwners, search, searchMode, setSearchMode, setSearch } =
-    useOwners() as OwnerContextType
+  const {
+    searchOwners,
+    search,
+    searchMode,
+    setSearchMode,
+    setSearch,
+    loading,
+    setLoading,
+  } = useOwners() as OwnerContextType
   const inputRef = useRef<HTMLInputElement>(null)
   const handleSubmit: React.FormEventHandler = async (event): Promise<void> => {
     event.preventDefault()
@@ -27,9 +34,10 @@ export const SearchForm: NextPage = () => {
     // only run if change needed
     if (searchMode || search?.[0]) {
       // console.log('search - resetSearchInput ran')
-
-      setSearch([])
-      setSearchMode(false)
+      setLoading(true)
+      setTimeout(() => setSearch([]), 0)
+      setTimeout(() => setSearchMode(false), 0)
+      setTimeout(() => setLoading(false), 0)
     }
     if (inputRef.current) {
       inputRef.current.value = ''
@@ -69,7 +77,12 @@ export const SearchForm: NextPage = () => {
   // end esc key listener. ------------------------------------------------------
 
   return (
-    <form onSubmit={handleSubmit} className={styles.searchForm}>
+    <form
+      onSubmit={handleSubmit}
+      className={`${styles.searchForm} ${
+        loading ? 'cursorWait' : 'cursorDefault'
+      }`}
+    >
       <div className={styles.searchInputDiv}>
         <input
           type="text"
