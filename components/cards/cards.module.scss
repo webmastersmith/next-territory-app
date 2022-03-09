@@ -15,6 +15,9 @@
   @include xl2 {
     gap: 3rem;
   }
+  h3 {
+    color: var(--fireEngineRed);
+  }
 }
 
 // animations
@@ -24,17 +27,11 @@
 .leftAppearActive {
   transform: translateX(0vw);
 }
-.leftAppearDone {
-  transform: translateX(0vw);
-}
 
 .leftEnter {
   transform: translateX(-100vw);
 }
 .leftEnterActive {
-  transform: translateX(0vw);
-}
-.leftEnterDone {
   transform: translateX(0vw);
 }
 
@@ -44,18 +41,9 @@
 .leftExitActive {
   transform: translateX(-100vw);
 }
-.leftExitDone {
-  transform: translateX(-100vw);
-}
 
-.leftAppear,
 .leftAppearActive,
-.leftAppearDone,
-.leftEnter,
 .leftEnterActive,
-.leftEnterDone,
-.leftExit,
-.leftExitActive,
-.leftExitDone {
+.leftExitActive {
   transition: transform 1000ms;
 }

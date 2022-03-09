@@ -22,6 +22,7 @@ export const SearchForm: NextPage = () => {
     setLoading,
   } = useOwners() as OwnerContextType
   const inputRef = useRef<HTMLInputElement>(null)
+
   const handleSubmit: React.FormEventHandler = async (event): Promise<void> => {
     event.preventDefault()
     if (inputRef.current) {
@@ -32,12 +33,10 @@ export const SearchForm: NextPage = () => {
   }
   const resetSearchInput = useCallback(() => {
     // only run if change needed
-    if (searchMode || search?.[0]) {
+    if (searchMode || !!search?.[0]) {
       // console.log('search - resetSearchInput ran')
-      setLoading(true)
+      setSearchMode(false)
       setTimeout(() => setSearch([]), 0)
-      setTimeout(() => setSearchMode(false), 0)
-      setTimeout(() => setLoading(false), 0)
     }
     if (inputRef.current) {
       inputRef.current.value = ''

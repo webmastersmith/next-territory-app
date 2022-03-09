@@ -36,20 +36,26 @@ export const Cards: NextPage = () => {
           addEndListener={(node: any, done: any) =>
             node.addEventListener('transitionend', done, false)
           }
+          // classNames="left"
           classNames={{
             appear: styles.leftAppear,
             appearActive: styles.leftAppearActive,
-            appearDone: styles.leftAppearDone,
             enter: styles.leftEnter,
             enterActive: styles.leftEnterActive,
-            enterDone: styles.leftEnterDone,
             exit: styles.leftExit,
             exitActive: styles.leftExitActive,
-            exitDone: styles.leftExitDone,
           }}
           appear={true}
         >
           <div className={styles.container}>
+            {searchMode ? (
+              <h3>
+                Search Mode: {search.length} Territor
+                {search.length > 1 ? 'ies' : 'y'}
+              </h3>
+            ) : (
+              <h3> </h3>
+            )}
             {(searchMode ? search : owners).map((owner, i) => {
               return <Card owner={owner} key={owner._id} i={i} />
             })}
