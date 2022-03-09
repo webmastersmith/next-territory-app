@@ -3,12 +3,12 @@ import { useEffect } from 'react'
 import { Card } from 'components'
 import styles from './cards.module.scss'
 import { useOwners, OwnerContextType } from 'store'
-import { SwitchTransition, CSSTransition } from 'react-transition-group'
 
 export const Cards: NextPage = () => {
   const { owners, setOwners, search, searchMode } =
     useOwners() as OwnerContextType
   // on initial load, if local storage exist update state. Or create localStorage.
+
   useEffect(() => {
     // console.log('cards useEffect only on mount ran')
 
@@ -28,28 +28,10 @@ export const Cards: NextPage = () => {
   }, [])
 
   return (
-    <>
-      <SwitchTransition>
-        <CSSTransition
-          key={searchMode.toString()}
-          addEndListener={(node: any, done: any) =>
-            node.addEventListener('transitionend', done, false)
-          }
-          classNames={{
-            enterActive: styles.leftEnterActive,
-            enterDone: styles.leftEnterDone,
-            exitActive: styles.leftExitActive,
-            exitDone: styles.leftExitDone,
-          }}
-          appear={true}
-        >
-          <div className={styles.container}>
-            {(searchMode ? search : owners).map((owner, i) => {
-              return <Card owner={owner} key={owner._id} i={i} />
-            })}
-          </div>
-        </CSSTransition>
-      </SwitchTransition>
-    </>
+    <div className={styles.container}>
+      {(searchMode ? search : owners).map((owner, i) => {
+        return <Card owner={owner} key={owner._id} i={i} />
+      })}
+    </div>
   )
 }

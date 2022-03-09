@@ -18,27 +18,44 @@
 }
 
 // animations
-.leftEnterActive {
+.leftAppear {
   transform: translateX(-100vw);
+}
+.leftAppearActive {
+  transform: translateX(0vw);
+}
+.leftAppearDone {
+  transform: translateX(0vw);
+}
+
+.leftEnter {
+  transform: translateX(-100vw);
+}
+.leftEnterActive {
+  transform: translateX(0vw);
 }
 .leftEnterDone {
   transform: translateX(0vw);
 }
-.leftExitActive {
+
+.leftExit {
   transform: translateX(0vw);
+}
+.leftExitActive {
+  transform: translateX(-100vw);
 }
 .leftExitDone {
   transform: translateX(-100vw);
 }
+
+.leftAppear,
+.leftAppearActive,
+.leftAppearDone,
+.leftEnter,
 .leftEnterActive,
 .leftEnterDone,
+.leftExit,
 .leftExitActive,
 .leftExitDone {
   transition: transform 1000ms;
-}
-.cursorWait {
-  cursor: wait;
-}
-.cursorArrow {
-  cursor: unset;
 }
