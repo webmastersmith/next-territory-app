@@ -20,13 +20,19 @@ export const CardHeader: NextPage<Props> = ({ owner, i }) => {
     thumbnail,
     landId,
   } = owner
-  const { deleteCard } = useOwners() as OwnerContextType
+  const { deleteCard, setLoading, loading } = useOwners() as OwnerContextType
+
+  const handleClick = (id: string) => {
+    setLoading(true)
+    deleteCard(id)
+    setLoading(false)
+  }
 
   return (
     <div className={styles.outerImageWrapper}>
       <TrashCanSvg
         className={styles.trash}
-        onClick={() => deleteCard(owner.landId)}
+        onClick={() => handleClick(landId)}
       />
       <a
         href={
@@ -41,7 +47,9 @@ export const CardHeader: NextPage<Props> = ({ owner, i }) => {
         rel="noreferrer"
       >
         <div
-          className={styles.innerImageWrapper}
+          className={`${styles.innerImageWrapper} ${
+            loading ? 'cursorWait' : 'cursorUnset'
+          }`}
           style={{ position: 'relative', width: '100%', height: '400px' }}
         >
           {thumbnail ? (

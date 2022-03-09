@@ -12,8 +12,6 @@ export const ThemeContext = createContext<OwnerContextType | null>(null)
 export type OwnerContextType = {
   owners: OwnerType[]
   setOwners: (owners: OwnerType[]) => void
-  deleted: OwnerType[]
-  setDeleted: (owners: OwnerType[]) => void
   search: OwnerType[]
   setSearch: (owners: OwnerType[]) => void
   searchMode: boolean
@@ -28,23 +26,18 @@ export type OwnerContextType = {
 export const useOwnersContext = (initOwners: OwnerType[] = []) => {
   // console.log('store -Main fn useOwnersContext ran')
   const [owners, setOwners] = useState<OwnerType[]>(initOwners)
-  const [deleted, setDeleted] = useState<OwnerType[]>([])
   const [search, setSearch] = useState<OwnerType[]>([])
   const [searchMode, setSearchMode] = useState<boolean>(false)
   const [loading, setLoading] = useState<boolean>(false)
   // add functions here and to OwnerContext type.
 
-  const fixLocalStorage = useCallback(
-    (owners: OwnerType[], deleted: OwnerType[]) => {
-      try {
-        localStorage.setItem('owners', JSON.stringify(owners))
-        localStorage.setItem('deleted', JSON.stringify(deleted))
-      } catch (e) {
-        console.log('Storage Problem: ', e)
-      }
-    },
-    []
-  )
+  const fixLocalStorage = useCallback((owners: OwnerType[]) => {
+    try {
+      localStorage.setItem('owners', JSON.stringify(owners))
+    } catch (e) {
+      console.log('Storage Problem: ', e)
+    }
+  }, [])
 
   const searchOwners = useCallback(
     (word: string = '') => {
@@ -87,10 +80,16 @@ export const useOwnersContext = (initOwners: OwnerType[] = []) => {
             return [name, ...personContact].join(' ')
           })
           .join(' ')
-        const all = `${name} ${deed} ${ownerId} ${landId} ${exemptions.join(
+        let exempt: string[] = []
+        exemptions.forEach((e) => {
+          if (!e.name.includes('EMPTY')) {
+            exempt.push(e.name)
+          }
+        })
+        const all = `${name} ${deed} ${ownerId} ${landId} ${exempt.join(
           ' '
         )} ${p} ${m} ${phoneAddress}`
-          .replaceAll(/[,-.()]/g, '')
+          .replaceAll(/[-,.()\n\r]/g, '')
           .replaceAll('  ', ' ')
           .toLowerCase()
         return all.includes(text.toLowerCase())
@@ -107,19 +106,16 @@ export const useOwnersContext = (initOwners: OwnerType[] = []) => {
   const deleteCard = useCallback(
     (id: string) => {
       // console.log('store -deleteCard ran')
-      const deletedOwner = owners.filter((owner) => id === owner.landId)
       const filteredOwners = owners.filter((owner) => id !== owner.landId)
       // if card is deleted in 'searchMode' card in search array is removed.
       // this will not effect the 'deleted' array, because the card is removed from
       // the owners array and added to deleted array.
       const filteredSearch = search.filter((owner) => id !== owner.landId)
-      const _deleted = [...deletedOwner, ...deleted]
       setOwners(filteredOwners)
-      setDeleted(_deleted)
       setSearch(filteredSearch)
-      fixLocalStorage(filteredOwners, _deleted)
+      fixLocalStorage(filteredOwners)
     },
-    [deleted, owners, fixLocalStorage, search]
+    [owners, fixLocalStorage, search]
   )
 
   const sortNums = useCallback(
@@ -169,8 +165,6 @@ export const useOwnersContext = (initOwners: OwnerType[] = []) => {
     return {
       owners,
       setOwners,
-      deleted,
-      setDeleted,
       deleteCard,
       loading,
       setLoading,
@@ -181,16 +175,7 @@ export const useOwnersContext = (initOwners: OwnerType[] = []) => {
       setSearchMode,
       sortNums,
     }
-  }, [
-    owners,
-    deleted,
-    deleteCard,
-    loading,
-    search,
-    searchOwners,
-    searchMode,
-    sortNums,
-  ])
+  }, [owners, deleteCard, loading, search, searchOwners, searchMode, sortNums])
 
   return ownersContext
 }

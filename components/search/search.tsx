@@ -42,7 +42,7 @@ export const SearchForm: NextPage = () => {
   const escFunction = useCallback(
     (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
-        console.log('search -esc key fn ran')
+        // console.log('search -esc key fn ran')
         //Do whatever when esc is pressed
         resetSearchInput()
       }

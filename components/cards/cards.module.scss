@@ -16,3 +16,29 @@
     gap: 3rem;
   }
 }
+
+// animations
+.leftEnterActive {
+  transform: translateX(-100vw);
+}
+.leftEnterDone {
+  transform: translateX(0vw);
+}
+.leftExitActive {
+  transform: translateX(0vw);
+}
+.leftExitDone {
+  transform: translateX(-100vw);
+}
+.leftEnterActive,
+.leftEnterDone,
+.leftExitActive,
+.leftExitDone {
+  transition: transform 1000ms;
+}
+.cursorWait {
+  cursor: wait;
+}
+.cursorArrow {
+  cursor: unset;
+}
