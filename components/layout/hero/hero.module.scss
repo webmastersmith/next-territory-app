@@ -1,0 +1,15 @@
+@import 'styles/mixins.scss';
+
+.header {
+  --headerIconSize: 4rem;
+  background-color: #3d6277;
+  margin-bottom: 2rem;
+}
+.titleContainer {
+}
+.mainIcon {
+  display: inline;
+  color: white;
+  width: var(--headerIconSize);
+  height: var(--headerIconSize);
+}

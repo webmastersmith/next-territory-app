@@ -1,3 +1,2 @@
-export * from './navBar'
-export * from './icons'
 export * from './navBarTerritory'
+export * from './hero'
