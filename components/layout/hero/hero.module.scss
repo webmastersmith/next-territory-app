@@ -4,7 +4,6 @@
   --headerIconSize: 4rem;
   --headerHeight: 500px;
   position: relative;
-
   display: grid;
   grid-template-columns: 1fr;
   @include lg {
@@ -27,7 +26,6 @@
   }
 }
 .bgImg {
-  // grid-column-start: span 2;
   @include lg {
     grid-column-start: span 2;
   }
@@ -39,35 +37,48 @@
   top: 1rem;
   left: 1rem;
   color: #ffffff;
-  width: var(--headerIconSize);
-  height: var(--headerIconSize);
+  width: 1rem;
+  height: 1rem;
+  @include xs2 {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  @include md {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  @include lg {
+    left: 1rem;
+    width: var(--headerIconSize);
+    height: var(--headerIconSize);
+  }
   z-index: 1;
 }
 .title {
   color: #ffffff;
   font-family: var(--vlad);
   z-index: 1;
-  padding-top: 5rem;
-  font-size: 1.5rem;
+  padding-top: 0.6rem;
+  font-size: 1.2rem;
   text-align: center;
   @include xs {
+    // padding-top: 5rem;
+    font-size: 1.5rem;
   }
   @include xs2 {
-    padding-top: 4.5rem;
-    font-size: 2.5rem;
+    padding-top: 0.4rem;
+    font-size: 2rem;
   }
   @include sm {
-    padding-top: 1rem;
-    // padding-top: 1rem;
-    padding-left: 3rem;
+    // padding-top: 0.2rem;
+    // padding-left: 3rem;
   }
   @include md {
-    padding: 0;
+    // padding: 0.4rem;
     font-size: 3.5rem;
   }
 
-  // grid-column: 2/3;
-  // grid-row: 2/3;
   justify-self: center;
   align-self: start;
   @include lg {
@@ -77,22 +88,14 @@
     align-self: center;
   }
 }
-.img {
-}
 
 .heroImgWrapper {
   position: absolute;
   bottom: -6rem;
-  // left: 50%;
   justify-self: center;
-  // padding-right: 3rem;
-  // transform: translateX(-50%);
 
   @include lg {
     left: 2rem;
     z-index: 1;
   }
-}
-.heroImg {
-  // z-index: 3;
 }
