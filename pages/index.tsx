@@ -2,7 +2,7 @@ import type { NextPage, GetStaticProps } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from 'styles/HomePage.module.scss'
-import { Hero, NumberBlock } from 'components'
+import { Hero, ImageSection, NumberBlock } from 'components'
 import { listCollection, getClient } from 'utils'
 
 type Props = { files: string[] }
@@ -10,7 +10,7 @@ const HomePage: NextPage<Props> = ({ files }) => {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Lufkin Central Territory</title>
+        <title>Lufkin Central Address Helper</title>
         <meta name="description" content="" />
 
         <link
@@ -36,10 +36,20 @@ const HomePage: NextPage<Props> = ({ files }) => {
         <meta name="theme-color" content="#ffffff" />
       </Head>
 
-      <Hero />
+      <section className={styles.section}>
+        <Hero />
+      </section>
 
       <main className={styles.main}>
-        <NumberBlock files={files} />
+        <section className={styles.section}>
+          <h1 className={styles.sectionTitle}>Spend More Time Writing</h1>
+          <ImageSection />
+        </section>
+
+        <section className={styles.section}>
+          <h1 className={styles.sectionTitle}>Choose Your Territory!</h1>
+          <NumberBlock files={files} />
+        </section>
       </main>
 
       <footer className={styles.footer}></footer>

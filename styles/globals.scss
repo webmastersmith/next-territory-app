@@ -127,6 +127,12 @@ h6 {
   --svgSize: 1.5rem;
 
   --single-shadow: 0 6px 6px hsl(0deg 0% 0% / 0.3);
+  --vlad: 'vladimir-script';
+}
+
+@font-face {
+  font-family: 'vladimir-script';
+  src: url('../fonts/VLADIMIR.TTF');
 }
 
 /* className="container" */

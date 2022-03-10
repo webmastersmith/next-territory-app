@@ -3,18 +3,31 @@ import Image from 'next/image'
 import styles from './hero.module.scss'
 import { HomeWorkIcon } from 'icons'
 import animation from 'styles/float.module.css'
+import headerCard from './heroCard.png'
+import pen from './pn.jpg'
 
 export const Hero: NextPage = () => {
   return (
     <header className={styles.header}>
-      <div className={styles.titleContainer}>
-        <HomeWorkIcon className={styles.mainIcon} />
-        <h1>Lufkin Central Territory App</h1>
+      <HomeWorkIcon className={styles.mainIcon} />
+
+      <h1 className={styles.title}>Lufkin Central Address Helper</h1>
+
+      <div className={styles.bgImg}>
+        <Image
+          src={pen}
+          alt="letter writing"
+          layout="fill"
+          objectFit="cover"
+          objectPosition="bottom"
+          priority
+          className={styles.img}
+        />
       </div>
 
-      <div className={`${styles.heroDiv} ${animation.float}`}>
+      <div className={`${styles.heroImgWrapper} ${animation.float}`}>
         <Image
-          src="/heroCard.png"
+          src={headerCard}
           alt="territory card"
           width={315}
           height={481}

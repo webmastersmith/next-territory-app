@@ -15,9 +15,16 @@
   @include xl2 {
     gap: 3rem;
   }
-  h3 {
-    color: var(--fireEngineRed);
-  }
+}
+.titleContainer {
+  --size: 2rem;
+  display: flex;
+  justify-content: center;
+  height: var(--size);
+}
+.title {
+  color: var(--fireEngineRed);
+  font-size: var(--size);
 }
 
 // animations

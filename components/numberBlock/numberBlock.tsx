@@ -21,29 +21,25 @@ export const NumberBlock: NextPage<Props> = ({ files }) => {
   ]
 
   return (
-    <div className={styles.outerContainer}>
-      <h1 className={styles.title}>Choose your territory</h1>
+    <div className={styles.container}>
+      {mount &&
+        !!files.length &&
+        files.map((file) => {
+          const num = Math.round(Math.random() * 3) //0-5
 
-      <div className={styles.innerContainer}>
-        {mount &&
-          !!files.length &&
-          files.map((file) => {
-            const num = Math.round(Math.random() * 3) //0-5
-
-            return (
-              <Link href={`/${file}`} key={file} prefetch={false}>
-                <a>
-                  <button
-                    className={`${styles.glossyButton} ${styles[color[num]]}`}
-                    onClick={() => localStorage.clear()}
-                  >
-                    {file}
-                  </button>
-                </a>
-              </Link>
-            )
-          })}
-      </div>
+          return (
+            <Link href={`/${file}`} key={file} prefetch={false}>
+              <a>
+                <button
+                  className={`${styles.glossyButton} ${styles[color[num]]}`}
+                  onClick={() => localStorage.clear()}
+                >
+                  {file}
+                </button>
+              </a>
+            </Link>
+          )
+        })}
     </div>
   )
 }

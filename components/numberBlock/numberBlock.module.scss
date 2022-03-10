@@ -1,14 +1,6 @@
 @import 'styles/mixins.scss';
 
-.outerContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  h1 {
-    margin-bottom: 1rem;
-  }
-}
-.innerContainer {
+.container {
   --numberBlockSize: 3rem;
   @include sm {
     --numberBlockSize: 5rem;
@@ -32,6 +24,10 @@
   a:focus {
     text-decoration: none;
   }
+}
+.title {
+  font-family: 'vladimir-script';
+  font-size: 4rem;
 }
 
 .glossyButton {
