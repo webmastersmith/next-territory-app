@@ -14,12 +14,17 @@
     --numberBlockSize: 5rem;
   }
   display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(3, minmax(var(--numberBlockSize), 1fr));
-  @include sm {
-    gap: 2rem;
-    grid-template-columns: repeat(5, minmax(var(--numberBlockSize), 1fr));
-  }
+  width: 100%;
+  padding: 0 2rem;
+  justify-items: center;
+  // align-items: center;
+  gap: 1.5rem;
+  // grid-template-columns: repeat(auto-fit, var(--numberBlockSize));
+  grid-template-columns: repeat(auto-fit, minmax(var(--numberBlockSize), 1fr));
+  // @include sm {
+  //   gap: 2rem;
+  //   grid-template-columns: repeat(5, minmax(var(--numberBlockSize), 1fr));
+  // }
 
   a:link,
   a:hover,
@@ -75,14 +80,14 @@
 }
 
 .glossyButtonBlue {
-  background-color: #19f;
+  background-color: #3f88c5;
 }
 .glossyButtonGold {
-  background-color: #ea0;
+  background-color: #de9e36;
 }
 .glossyButtonGreen {
-  background-color: #6c6;
+  background-color: #94ecbe;
 }
 .glossyButtonRed {
-  background-color: #e21;
+  background-color: var(--fireEngineRed);
 }

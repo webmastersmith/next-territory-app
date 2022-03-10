@@ -2,14 +2,33 @@
 
 .header {
   --headerIconSize: 4rem;
-  background-color: #3d6277;
-  margin-bottom: 2rem;
+  background: linear-gradient(180deg, var(--headerBG), var(--headerAccent));
+  margin-bottom: 5rem;
+  position: relative;
+  height: 500px;
+  z-index: -2;
 }
 .titleContainer {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+  padding-top: 1rem;
+  h1 {
+    margin-left: 1rem;
+    color: var(--headerAccent);
+  }
 }
 .mainIcon {
   display: inline;
   color: white;
   width: var(--headerIconSize);
   height: var(--headerIconSize);
+}
+.heroDiv {
+  position: absolute;
+  bottom: -6rem;
+  left: 2rem;
+}
+.heroImg {
+  z-index: -1;
 }

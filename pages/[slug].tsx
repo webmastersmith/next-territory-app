@@ -1,4 +1,5 @@
 import type { NextPage, GetStaticProps, GetStaticPaths } from 'next'
+import Head from 'next/head'
 import { getClient, listCollection, db } from 'utils'
 import { NavBarTerritory, Cards } from 'components'
 import { OwnerType } from 'types'
@@ -13,6 +14,9 @@ const Territory: NextPage<Props> = ({ owners }) => {
 
   return (
     <div>
+      <Head>
+        <title>Lufkin Central Territory {owners[0].territoryNumber}</title>
+      </Head>
       <ThemeContext.Provider value={store}>
         <NavBarTerritory />
         <Cards />
