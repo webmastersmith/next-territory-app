@@ -1,10 +1,18 @@
+@import 'styles/mixins.scss';
+
 .section {
   margin-bottom: 10rem;
 }
 
 .sectionTitle {
   font-family: var(--vlad);
-  font-size: 4rem;
+  font-size: 2rem;
+  @include xs {
+    font-size: 3rem;
+  }
+  @include sm {
+    font-size: 4rem;
+  }
   margin-bottom: 2rem;
   text-align: center;
 }

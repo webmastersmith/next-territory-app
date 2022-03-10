@@ -1,13 +1,31 @@
+@import 'styles/mixins.scss';
+
 .imgContainer {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  gap: 2rem;
+
+  @include md {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.1rem;
+  }
+  // repeat(auto-fill, 1fr);
+  // grid-template-rows: repeat(auto-fill, 1fr);
   justify-items: center;
 }
 
 .imgWrapper {
   position: relative;
-  width: 250px;
-  height: 380px;
+  width: 290px;
+  height: 435px;
+  @include xs {
+    width: 400px;
+    height: 600px;
+  }
+  @include md {
+    width: 245px;
+    height: 368px;
+  }
   &::before {
     content: '';
     position: absolute;

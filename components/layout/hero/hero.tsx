@@ -4,7 +4,7 @@ import styles from './hero.module.scss'
 import { HomeWorkIcon } from 'icons'
 import animation from 'styles/float.module.css'
 import headerCard from './heroCard.png'
-import pen from './pn.jpg'
+import pen from './pen.jpg'
 
 export const Hero: NextPage = () => {
   return (
@@ -29,8 +29,8 @@ export const Hero: NextPage = () => {
         <Image
           src={headerCard}
           alt="territory card"
-          width={315}
-          height={481}
+          width={300}
+          height={459}
           priority
           className={styles.heroImg}
         />
