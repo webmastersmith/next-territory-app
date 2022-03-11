@@ -6,20 +6,12 @@
   width: 100%;
   max-width: 320px;
   min-width: 175px;
-  // @media (min-width: ${sm}) {
-  //   flex-direction: row;
-  //   justify-content: center;
-  //   margin-top: 1rem;
-  // }
 }
 .searchInputDiv {
   --inputHeight: 2.5rem;
   position: relative;
   width: 100%;
-  // @media (min-width: ${sm}) {
-  //   width: 75%;
-  //   max-width: 665px;
-  // }
+
   input {
     border-radius: 5px;
   }

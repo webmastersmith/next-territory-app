@@ -21,7 +21,7 @@
   }
   .tooltipText {
     visibility: hidden;
-    white-space: pre;
+    white-space: pre-wrap;
     width: 100%;
     background-color: var(--lightGreen);
     color: var(--lightRed);
@@ -31,12 +31,10 @@
     z-index: 10;
     bottom: 135%;
     box-shadow: var(--boxShadow);
-    // left: -50%;
     opacity: 0;
     &::after {
       content: '';
       position: absolute;
-      // top: 90%;
       left: 5%;
       margin-left: -6px;
       border-width: 10px;

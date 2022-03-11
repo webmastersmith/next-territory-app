@@ -10,9 +10,10 @@
   background-color: var(--cardBackground);
   border-radius: var(--borderRadius);
   box-shadow: var(--boxShadow);
-  margin: 2rem 0.5rem;
-  @include md {
-    margin: 3rem 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  @include xs {
+    margin-bottom: 3rem;
   }
 }
 .cardBodyWrapper {

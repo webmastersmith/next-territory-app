@@ -1,6 +1,5 @@
 import type { NextPage, GetStaticProps } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
 import styles from 'styles/HomePage.module.scss'
 import { Hero, ImageSection, NumberBlock } from 'components'
 import { listCollection, getClient } from 'utils'
@@ -52,7 +51,9 @@ const HomePage: NextPage<Props> = ({ files }) => {
         </section>
       </main>
 
-      <footer className={styles.footer}></footer>
+      <footer className={styles.footer}>
+        <p>&copy;2022 by Bryon Smith</p>
+      </footer>
     </div>
   )
 }

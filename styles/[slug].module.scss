@@ -1,0 +1,14 @@
+.footer {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+  background-color: var(--headerBG);
+  font-size: 0.75rem;
+  span {
+    font-family: var(--vlad);
+    font-size: 1rem;
+  }
+}

@@ -4,6 +4,7 @@ import { getClient, listCollection, db } from 'utils'
 import { NavBarTerritory, Cards } from 'components'
 import { OwnerType } from 'types'
 import { useOwnersContext, ThemeContext } from 'store'
+import styles from 'styles/[slug].module.scss'
 
 interface Props {
   owners: OwnerType[]
@@ -21,6 +22,11 @@ const Territory: NextPage<Props> = ({ owners }) => {
         <NavBarTerritory />
         <Cards />
       </ThemeContext.Provider>
+      <footer className={styles.footer}>
+        <p>
+          &copy;{new Date().getFullYear()} by <span>Bryon Smith</span>
+        </p>
+      </footer>
     </div>
   )
 }
