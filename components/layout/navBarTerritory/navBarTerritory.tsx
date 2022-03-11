@@ -5,20 +5,30 @@ import styles from './navBarTerritory.module.scss'
 import { useOwners, OwnerContextType } from 'store'
 import { SearchForm } from 'components'
 import { HomeWorkIcon } from 'icons'
-import { PrinterSvg, SaveSvg, TrashCanSvg, SortAZSvg, Sort09Svg } from 'icons'
+import {
+  PrinterSvg,
+  SaveSvg,
+  TrashCanSvg,
+  SortAZSvg,
+  Sort09Svg,
+  UploadSvg,
+} from 'icons'
 import { OwnerType } from 'types'
-
-//interface Props {
-//	data: string
-//}
-//NextPage<Props>
 
 export const NavBarTerritory: NextPage = () => {
   const [isSort, setIsSort] = useState<boolean>(false)
   const [myBlob, setMyBlob] = useState('')
   const [mySave, setMySave] = useState('')
-  const { owners, searchMode, search, sortNums, loading, setLoading } =
-    useOwners() as OwnerContextType
+  const {
+    owners,
+    setOwners,
+    fixLocalStorage,
+    searchMode,
+    search,
+    sortNums,
+    loading,
+    setLoading,
+  } = useOwners() as OwnerContextType
 
   useEffect(() => {
     //if true num sort
@@ -46,6 +56,8 @@ export const NavBarTerritory: NextPage = () => {
       )
     )
   }, [searchMode, search, owners])
+
+  useEffect(() => {}, [])
 
   function print(owners: OwnerType[]) {
     return owners.map((owner) => {
@@ -118,6 +130,33 @@ export const NavBarTerritory: NextPage = () => {
         >
           <SaveSvg />
         </a>
+
+        <div>
+          <input
+            type="file"
+            id="fileElem"
+            accept=".json"
+            name="myFile"
+            className={styles.hidden}
+            onChange={(e) => {
+              if (e.target.files?.[0]) {
+                e.target.files[0].text().then((data) => {
+                  //do something with data.
+                  const owners = JSON.parse(data)
+                  setOwners(owners)
+                  fixLocalStorage(owners)
+                })
+              }
+            }}
+          />
+          <div
+            onClick={() => {
+              document.getElementById('fileElem')?.click()
+            }}
+          >
+            <UploadSvg />
+          </div>
+        </div>
 
         {isSort ? (
           <SortAZSvg

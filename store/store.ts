@@ -21,6 +21,7 @@ export type OwnerContextType = {
   deleteCard: (id: string) => void
   searchOwners: (word: string) => boolean
   sortNums: (number?: string) => void
+  fixLocalStorage: (owners: OwnerType[]) => void
 }
 
 export const useOwnersContext = (initOwners: OwnerType[] = []) => {
@@ -174,8 +175,18 @@ export const useOwnersContext = (initOwners: OwnerType[] = []) => {
       searchMode,
       setSearchMode,
       sortNums,
+      fixLocalStorage,
     }
-  }, [owners, deleteCard, loading, search, searchOwners, searchMode, sortNums])
+  }, [
+    owners,
+    deleteCard,
+    loading,
+    search,
+    searchOwners,
+    searchMode,
+    sortNums,
+    fixLocalStorage,
+  ])
 
   return ownersContext
 }
