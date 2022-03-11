@@ -2,9 +2,11 @@
   "name": "next-territory-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://webmastersmith.github.io/next-territory-app",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "export": "next build && next export",
     "start": "next start",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
