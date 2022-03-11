@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
-import Image from 'next/image'
+// import Image from 'next/image'
+import Image from 'components/image'
 import styles from './imageSection.module.scss'
 import coffeeLetter from './coffeeLetter.jpg'
 import letter from './letter.jpg'

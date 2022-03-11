@@ -4,7 +4,6 @@ import { useState, useEffect, useCallback } from 'react'
 import styles from './navBarTerritory.module.scss'
 import { useOwners, OwnerContextType } from 'store'
 import { SearchForm } from 'components'
-import { HomeWorkIcon } from 'icons'
 import {
   PrinterSvg,
   SaveSvg,
@@ -12,6 +11,7 @@ import {
   SortAZSvg,
   Sort09Svg,
   UploadSvg,
+  HomeWorkIcon,
 } from 'icons'
 import { OwnerType } from 'types'
 

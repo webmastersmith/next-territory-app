@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
-import Image from 'next/image'
+// import Image from 'next/image'
+import Image from 'components/image'
 import styles from './hero.module.scss'
 import { HomeWorkIcon } from 'icons'
 import animation from 'styles/float.module.css'

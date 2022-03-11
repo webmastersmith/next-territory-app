@@ -1,14 +1,8 @@
 import type { NextPage } from 'next'
-import { useRef, useCallback, useEffect, FormEvent } from 'react'
-// import { OwnerType } from 'types'
+import { useRef, useCallback, useEffect } from 'react'
 import styles from './search.module.scss'
 import { useOwners, OwnerContextType } from 'store'
 import { X2Svg } from 'icons'
-
-// interface Props {
-// 	memoSetSearch: () => OwnerType[]
-// }
-//NextPage<Props>
 
 export const SearchForm: NextPage = () => {
   // console.log('search -memo SearchForm ran')
