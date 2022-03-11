@@ -63,19 +63,13 @@
   font-size: 1.2rem;
   text-align: center;
   @include xs {
-    // padding-top: 5rem;
     font-size: 1.5rem;
   }
   @include xs2 {
     padding-top: 0.4rem;
     font-size: 2rem;
   }
-  @include sm {
-    // padding-top: 0.2rem;
-    // padding-left: 3rem;
-  }
   @include md {
-    // padding: 0.4rem;
     font-size: 3.5rem;
   }
 

@@ -4,9 +4,9 @@ export function getClient(): MongoClient {
   return new MongoClient(process.env.MONGODB as string)
 }
 // production
-// export const db = 'Lufkin_TerritoryDB'
+export const db = 'Lufkin_TerritoryDB'
 // test mode
-export const db = 'playgroundDB'
+// export const db = 'playgroundDB'
 
 export const listCollection = async (client: MongoClient) => {
   // get collection objects with name

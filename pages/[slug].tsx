@@ -44,9 +44,21 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     // db comes from utils
     const ownersCollection = client.db(db).collection<OwnerType>(slug)
     const owners = await ownersCollection.find({}).toArray()
+    //remove unnecessary cruft. Loop through onwerProperty and extract owner only, discard others.
+    const _owners = owners.map((owner) => {
+      const { ownerProperty, landId } = owner
+      const _ownerProperty = ownerProperty.filter(
+        (item) => item.propertyId === landId
+      )
+      return {
+        ...owner,
+        ownerProperty: _ownerProperty,
+      }
+    })
+
     return {
       props: {
-        owners,
+        owners: _owners,
       },
     }
   } catch (e) {
