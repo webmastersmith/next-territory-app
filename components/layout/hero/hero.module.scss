@@ -5,10 +5,10 @@
   --headerHeight: 500px;
   position: relative;
   display: grid;
-  grid-template-columns: 1fr;
-  @include lg {
-    grid-template-columns: 350px 1fr;
-  }
+  // grid-template-columns: 1fr;
+  // @include lg {
+  //   grid-template-columns: 350px 1fr;
+  // }
   width: 100%;
   height: var(--headerHeight);
   &::before {
@@ -25,11 +25,14 @@
     );
   }
 }
-.bgImg {
-  @include lg {
-    grid-column-start: span 2;
-  }
+
+.penImg {
   z-index: -1;
+  object-fit: cover;
+  // object-position: bottom;
+  height: var(--headerHeight);
+  width: 100vw;
+  max-width: none;
 }
 
 .mainIcon {
@@ -75,9 +78,9 @@
 
   justify-self: center;
   align-self: start;
+  grid-column: 2/3;
+  grid-row: 2/3;
   @include lg {
-    grid-column: 2/3;
-    grid-row: 2/3;
     justify-self: center;
     align-self: center;
   }
@@ -89,9 +92,16 @@
   justify-self: center;
   width: 300px;
   height: 459px;
-
+  z-index: 1;
+  left: 50%;
+  transform: translateX(-50%);
+  @include xs {
+    left: 0.5rem;
+  }
+  @include md {
+    left: 1rem;
+  }
   @include lg {
     left: 2rem;
-    z-index: 1;
   }
 }
