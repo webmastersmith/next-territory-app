@@ -1,15 +1,5 @@
 import type { NextPage } from 'next'
-// import Image from 'next/image'
-import Image from 'components/image'
 import styles from './imageSection.module.scss'
-import coffeeLetter from './coffeeLetter.jpg'
-import letter from './letter.jpg'
-import girl from './girl.jpg'
-
-//interface Props {
-//	data: string
-//}
-//NextPage<Props>
 
 export const ImageSection: NextPage = () => {
   return (
@@ -147,15 +137,68 @@ export const ImageSection: NextPage = () => {
       </div>
 
       <div className={styles.imgWrapper}>
-        <Image
-          src={girl}
-          alt="letter writing"
-          layout="fill"
-          objectFit="cover"
-          objectPosition="bottom"
-          priority
-          className={styles.img}
-        />
+        <picture>
+          <source
+            type="image/avif"
+            sizes="(max-width: 424px) 290px"
+            srcSet="/girl/girl-290w421h.avif 290w, /girl/girl-580w842h.avif 580w, /girl/girl-870w1263h.avif 870w"
+          />
+
+          <source
+            type="image/webp"
+            sizes="(max-width: 424px) 290px"
+            srcSet="/girl/girl-290w421h.webp 290w, /girl/girl-580w842h.webp 580w, /girl/girl-870w1263h.webp 870w"
+          />
+
+          <source
+            type="image/jpg"
+            sizes="(max-width: 424px) 290px"
+            srcSet="/girl/girl-290w421h.jpg 290w, /girl/girl-580w842h.jpg 580w, /girl/girl-870w1263h.jpg 870w"
+          />
+
+          <source
+            type="image/avif"
+            sizes="(max-width: 768px) 400px"
+            srcSet="/girl/girl-400w581h.avif 400w, /girl/girl-800w1162h.avif 800w, /girl/girl-1200w1743h.avif 1200w"
+          />
+
+          <source
+            type="image/webp"
+            sizes="(max-width: 768px) 400px"
+            srcSet="/girl/girl-400w581h.webp 400w, /girl/girl-800w1162h.webp 800w, /girl/girl-1200w1743h.webp 1200w"
+          />
+
+          <source
+            type="image/jpg"
+            sizes="(max-width: 768px) 400px"
+            srcSet="/girl/girl-400w581h.jpg 400w, /girl/girl-800w1162h.jpg 800w, /girl/girl-1200w1743h.jpg 1200w"
+          />
+
+          <source
+            type="image/avif"
+            sizes="(min-width: 769px) 245px"
+            srcSet="/girl/girl-245w356h.avif 245w, /girl/girl-490w712h.avif 490w, /girl/girl-735w1068h.avif 735w"
+          />
+
+          <source
+            type="image/webp"
+            sizes="(min-width: 769px) 245px"
+            srcSet="/girl/girl-245w356h.webp 245w, /girl/girl-490w712h.webp 490w, /girl/girl-735w1068h.webp 735w"
+          />
+
+          <source
+            type="image/jpg"
+            sizes="(min-width: 769px) 245px"
+            srcSet="/girl/girl-245w356h.jpg 245w, /girl/girl-490w712h.jpg 490w, /girl/girl-735w1068h.jpg 735w"
+          />
+
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/girl/girl-400w600h.jpg"
+            alt="image of girl writing letter"
+            className={styles.girlImg}
+          />
+        </picture>
         <p className={styles.imgText}>Enjoy More</p>
       </div>
     </div>
