@@ -8,7 +8,7 @@
     "build": "next build",
     "export": "next build && next export",
     "start": "next start",
-    "predeploy": "npm run export",
+    "predeploy": "npm run export && gac",
     "deploy": "gh-pages -d out",
     "rebuild": "rmdir /Q /S out && git push origin --delete gh-pages && npm run deploy",
     "lint": "next lint"
