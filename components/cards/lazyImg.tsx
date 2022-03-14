@@ -3,7 +3,6 @@ import React, { useEffect, useRef, useState } from 'react'
 export const LazyImg = (props: any) => {
   const [inView, setInView] = useState(false)
   const placeholderRef = useRef()
-  const placeholder = '/placeholder.jpg'
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -27,6 +26,12 @@ export const LazyImg = (props: any) => {
       observer.disconnect()
     }
   }, [])
+  let basePath = '/next-territory-app'
+  if (process.env.NODE_ENV === 'development') {
+    basePath = ''
+  }
+
+  const placeholder = `${basePath}/placeholder.jpg`
 
   return inView ? (
     //eslint-disable-next-line @next/next/no-img-element

@@ -12,6 +12,11 @@ interface Props {
 }
 
 export const CardHeader: NextPage<Props> = ({ owner, i }) => {
+  let basePath = '/next-territory-app'
+  if (process.env.NODE_ENV === 'development') {
+    basePath = ''
+  }
+
   const {
     coordinates: coords,
     physicalAddress,
@@ -56,12 +61,11 @@ export const CardHeader: NextPage<Props> = ({ owner, i }) => {
           className={`${styles.innerImageWrapper} ${
             loading ? 'cursorWait' : 'cursorUnset'
           }`}
-          style={{ position: 'relative', width: '100%', height: '400px' }}
         >
           {thumbnail ? (
             // eslint-disable-next-line @next/next/no-img-element
             <LazyImg
-              src={`/images/${thumbnail}.jpeg`}
+              src={`${basePath}/images/${thumbnail}.jpeg`}
               alt={`image of ${physicalAddress}`}
               loading={i < 2 ? 'eager' : 'lazy'}
             />
