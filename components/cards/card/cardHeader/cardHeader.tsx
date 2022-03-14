@@ -1,11 +1,10 @@
 import type { NextPage } from 'next'
-// import Image from 'next/image'
-import Image from 'components/image'
 import { OwnerType } from 'types'
 import styles from './cardHeader.module.scss'
 import { TrashCanSvg } from 'icons'
 import { useOwners, OwnerContextType } from 'store'
 import { useCallback } from 'react'
+import { LazyImg } from 'components'
 
 interface Props {
   owner: OwnerType
@@ -61,12 +60,10 @@ export const CardHeader: NextPage<Props> = ({ owner, i }) => {
         >
           {thumbnail ? (
             // eslint-disable-next-line @next/next/no-img-element
-            <Image
+            <LazyImg
               src={`/images/${thumbnail}.jpeg`}
               alt={`image of ${physicalAddress}`}
-              priority={i > 1 ? false : true}
-              layout="fill"
-              objectFit="cover"
+              loading={i < 2 ? 'eager' : 'lazy'}
             />
           ) : (
             <div className={styles.noImage}>image not available</div>

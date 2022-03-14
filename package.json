@@ -8,10 +8,9 @@
     "build": "next build",
     "export": "next build && next export",
     "start": "next start",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "prerebuild": "rmdir /Q /S build && git push origin --delete gh-pages && npm run build",
-    "rebuild": "gh-pages -d build",
+    "predeploy": "npm run export",
+    "deploy": "gh-pages -d out",
+    "rebuild": "rmdir /Q /S out && git push origin --delete gh-pages && npm run deploy",
     "lint": "next lint"
   },
   "dependencies": {
