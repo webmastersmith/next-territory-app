@@ -16,16 +16,18 @@
 
 .imgWrapper {
   position: relative;
-  width: 290px;
-  height: 435px;
+  --w: 290px;
+  --h: 435px;
   @include xs {
-    width: 400px;
-    height: 600px;
+    --w: 400px;
+    --h: 600px;
   }
   @include md {
-    width: 245px;
-    height: 368px;
+    --w: 245px;
+    --h: 368px;
   }
+  width: var(--w);
+  height: var(--h);
   &::before {
     content: '';
     position: absolute;
@@ -39,6 +41,11 @@
       rgba(0, 0, 0, 1),
       rgba(0, 0, 0, 0)
     );
+  }
+  img {
+    object-fit: fill;
+    width: var(--w);
+    height: var(--h);
   }
 }
 .imgText {
