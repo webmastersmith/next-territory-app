@@ -17,6 +17,9 @@ const Territory: NextPage<Props> = ({ owners }) => {
     <div>
       <Head>
         <title>Lufkin Central Territory {owners[0].territoryNumber}</title>
+        <meta httpEquiv="last-modified" content={Date()} />
+        <meta httpEquiv="cache-control" content="Private" />
+        <meta httpEquiv="Expires" content="2629800" />
       </Head>
       <ThemeContext.Provider value={store}>
         <NavBarTerritory />

@@ -13,25 +13,27 @@ export const NumberBlock: NextPage<Props> = ({ files }) => {
     setMount(true)
   }, [])
 
-  const color = [
-    'glossyButtonBlue',
-    'glossyButtonGold',
-    'glossyButtonGreen',
-    'glossyButtonRed',
-  ]
+  // const color = [
+  //   'glossyButtonBlue',
+  //   'glossyButtonGold',
+  //   'glossyButtonGreen',
+  //   'glossyButtonRed',
+  // ]
 
   return (
     <div className={styles.container}>
       {mount &&
         !!files.length &&
         files.map((file) => {
-          const num = Math.round(Math.random() * 3) //0-5
-
           return (
             <Link href={`/${file}`} key={file} prefetch={false}>
               <a>
                 <button
-                  className={`${styles.glossyButton} ${styles[color[num]]}`}
+                  className={`${styles.glossyButton} ${
+                    +file <= 58
+                      ? styles.glossyButtonRed
+                      : styles.glossyButtonGold
+                  }`}
                   onClick={() => localStorage.clear()}
                 >
                   {file}

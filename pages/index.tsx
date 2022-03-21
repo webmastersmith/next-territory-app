@@ -15,6 +15,9 @@ const HomePage: NextPage<Props> = ({ files }) => {
     <div className={styles.container}>
       <Head>
         <title>Lufkin Central Address Helper</title>
+        <meta httpEquiv="last-modified" content={Date()} />
+        <meta httpEquiv="cache-control" content="Private" />
+        <meta httpEquiv="Expires" content="2629800" />
 
         <link
           rel="apple-touch-icon"
