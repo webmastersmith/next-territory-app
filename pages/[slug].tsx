@@ -16,7 +16,7 @@ const Territory: NextPage<Props> = ({ owners }) => {
   return (
     <div>
       <Head>
-        <title>Lufkin Central Territory {owners[0].territoryNumber}</title>
+        <title>{owners[0].territoryNumber}</title>
         <meta httpEquiv="last-modified" content={Date()} />
         <meta httpEquiv="cache-control" content="Private" />
         <meta httpEquiv="Expires" content="2629800" />
