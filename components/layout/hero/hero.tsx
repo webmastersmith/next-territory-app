@@ -13,7 +13,7 @@ export const Hero: NextPage = () => {
     <header className={styles.header}>
       <HomeWorkIcon className={styles.mainIcon} />
 
-      <h1 className={styles.title}>Lufkin Central Address Helper</h1>
+      <h1 className={styles.title}>Lufkin Address Helper</h1>
 
       {/* <div className={styles.bgImg}>
         <Image
