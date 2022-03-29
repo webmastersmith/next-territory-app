@@ -12,6 +12,7 @@
 /.next/
 /public
 /tempOut
+/local
 # production
 /build
 

@@ -5,7 +5,7 @@ import animation from 'styles/float.module.css'
 
 export const Hero: NextPage = () => {
   let basePath = '/next-territory-app'
-  if (process.env.NODE_ENV === 'development') {
+  if (process.env.NEXT_PUBLIC_BUILD_TYPE === 'local') {
     basePath = ''
   }
 

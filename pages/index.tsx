@@ -7,7 +7,7 @@ import { listCollection, getClient } from 'utils'
 type Props = { files: string[] }
 const HomePage: NextPage<Props> = ({ files }) => {
   let basePath = '/next-territory-app'
-  if (process.env.NODE_ENV === 'development') {
+  if (process.env.NEXT_PUBLIC_BUILD_TYPE === 'local') {
     basePath = ''
   }
 
