@@ -14,61 +14,61 @@ export const ImageSection: NextPage = () => {
           <source
             type="image/avif"
             sizes="(max-width: 424px) 290px"
-            srcSet={`${basePath}/coffeeLetter/coffeeLetter-290w218h.avif 290w, ${basePath}/coffeeLetter/coffeeLetter-580w436h.avif 580w, ${basePath}/coffeeLetter/coffeeLetter-870w654h.avif 870w`}
+            srcSet={`${basePath}/coffeeLetter/coffeeLetter-290w435h.avif 290w, ${basePath}/coffeeLetter/coffeeLetter-580w870h.avif 580w, ${basePath}/coffeeLetter/coffeeLetter-870w1305h.avif 870w`}
           />
 
           <source
             type="image/webp"
             sizes="(max-width: 424px) 290px"
-            srcSet={`${basePath}/coffeeLetter/coffeeLetter-290w218h.webp 290w, ${basePath}/coffeeLetter/coffeeLetter-580w436h.webp 580w, ${basePath}/coffeeLetter/coffeeLetter-870w654h.webp 870w`}
+            srcSet={`${basePath}/coffeeLetter/coffeeLetter-290w435h.webp 290w, ${basePath}/coffeeLetter/coffeeLetter-580w870h.webp 580w, ${basePath}/coffeeLetter/coffeeLetter-870w1305h.webp 870w`}
           />
 
           <source
             type="image/jpg"
             sizes="(max-width: 424px) 290px"
-            srcSet={`${basePath}/coffeeLetter/coffeeLetter-290w218h.jpg 290w, ${basePath}/coffeeLetter/coffeeLetter-580w436h.jpg 580w, ${basePath}/coffeeLetter/coffeeLetter-870w654h.jpg 870w`}
+            srcSet={`${basePath}/coffeeLetter/coffeeLetter-290w435h.jpg 290w, ${basePath}/coffeeLetter/coffeeLetter-580w870h.jpg 580w, ${basePath}/coffeeLetter/coffeeLetter-870w1305h.jpg 870w`}
           />
 
           <source
             type="image/avif"
             sizes="(max-width: 768px) 400px"
-            srcSet={`${basePath}/coffeeLetter/coffeeLetter-400w300h.avif 400w, ${basePath}/coffeeLetter/coffeeLetter-800w600h.avif 800w, ${basePath}/coffeeLetter/coffeeLetter-1200w900h.avif 1200w`}
+            srcSet={`${basePath}/coffeeLetter/coffeeLetter-400w600h.avif 400w, ${basePath}/coffeeLetter/coffeeLetter-800w1200h.avif 800w, ${basePath}/coffeeLetter/coffeeLetter-1200w1800h.avif 1200w`}
           />
 
           <source
             type="image/webp"
             sizes="(max-width: 768px) 400px"
-            srcSet={`${basePath}/coffeeLetter/coffeeLetter-400w300h.webp 400w, ${basePath}/coffeeLetter/coffeeLetter-800w600h.webp 800w, ${basePath}/coffeeLetter/coffeeLetter-1200w900h.webp 1200w`}
+            srcSet={`${basePath}/coffeeLetter/coffeeLetter-400w600h.webp 400w, ${basePath}/coffeeLetter/coffeeLetter-800w1200h.webp 800w, ${basePath}/coffeeLetter/coffeeLetter-1200w1800h.webp 1200w`}
           />
 
           <source
             type="image/jpg"
             sizes="(max-width: 768px) 400px"
-            srcSet={`${basePath}/coffeeLetter/coffeeLetter-400w300h.jpg 400w, ${basePath}/coffeeLetter/coffeeLetter-800w600h.jpg 800w, ${basePath}/coffeeLetter/coffeeLetter-1200w900h.jpg 1200w`}
+            srcSet={`${basePath}/coffeeLetter/coffeeLetter-400w600h.jpg 400w, ${basePath}/coffeeLetter/coffeeLetter-800w1200h.jpg 800w, ${basePath}/coffeeLetter/coffeeLetter-1200w1800h.jpg 1200w`}
           />
 
           <source
             type="image/avif"
             sizes="(min-width: 769px) 245px"
-            srcSet={`${basePath}/coffeeLetter/coffeeLetter-245w184h.avif 245w, ${basePath}/coffeeLetter/coffeeLetter-490w368h.avif 490w, ${basePath}/coffeeLetter/coffeeLetter-735w552h.avif 735w`}
+            srcSet={`${basePath}/coffeeLetter/coffeeLetter-245w368h.avif 245w, ${basePath}/coffeeLetter/coffeeLetter-490w736h.avif 490w, ${basePath}/coffeeLetter/coffeeLetter-735w1104h.avif 735w`}
           />
 
           <source
             type="image/webp"
             sizes="(min-width: 769px) 245px"
-            srcSet={`${basePath}/coffeeLetter/coffeeLetter-245w184h.webp 245w, ${basePath}/coffeeLetter/coffeeLetter-490w368h.webp 490w, ${basePath}/coffeeLetter/coffeeLetter-735w552h.webp 735w`}
+            srcSet={`${basePath}/coffeeLetter/coffeeLetter-245w368h.webp 245w, ${basePath}/coffeeLetter/coffeeLetter-490w736h.webp 490w, ${basePath}/coffeeLetter/coffeeLetter-735w1104h.webp 735w`}
           />
 
           <source
             type="image/jpg"
             sizes="(min-width: 769px) 245px"
-            srcSet={`${basePath}/coffeeLetter/coffeeLetter-245w184h.jpg 245w, ${basePath}/coffeeLetter/coffeeLetter-490w368h.jpg 490w, ${basePath}/coffeeLetter/coffeeLetter-735w552h.jpg 735w`}
+            srcSet={`${basePath}/coffeeLetter/coffeeLetter-245w368h.jpg 245w, ${basePath}/coffeeLetter/coffeeLetter-490w736h.jpg 490w, ${basePath}/coffeeLetter/coffeeLetter-735w1104h.jpg 735w`}
           />
 
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={`${basePath}/coffeeLetter/coffeeLetter-400w300h.jpg`}
-            alt="image of coffee with man writing letter"
+            src={`${basePath}/coffeeLetter/coffeeLetter-400w600h.jpg`}
+            alt="image of man writing letter"
             className={styles.coffeeLetterImg}
           />
         </picture>
@@ -134,7 +134,7 @@ export const ImageSection: NextPage = () => {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={`${basePath}/letter/letter-400w600h.jpg`}
-            alt="image of letter being written"
+            alt="image of pen and letter"
             className={styles.letterImg}
           />
         </picture>
@@ -199,8 +199,8 @@ export const ImageSection: NextPage = () => {
 
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={`${basePath}/girl/girl-400w600h.jpg`}
-            alt="image of girl writing letter"
+            src={`${basePath}/girl/girl-400w581h.jpg`}
+            alt="girl writing letter in quiet spot"
             className={styles.girlImg}
           />
         </picture>
