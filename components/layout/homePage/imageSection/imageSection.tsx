@@ -67,7 +67,7 @@ export const ImageSection: NextPage = () => {
 
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={`${basePath}/coffeeLetter/coffeeLetter-400w600h.jpg`}
+            src={`${basePath}/coffeeLetter/coffeeLetter-400w300h.jpg`}
             alt="image of coffee with man writing letter"
             className={styles.coffeeLetterImg}
           />
