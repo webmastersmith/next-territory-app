@@ -30,6 +30,8 @@ export const useOwnersContext = (initOwners: OwnerType[] = []) => {
   const [search, setSearch] = useState<OwnerType[]>([])
   const [searchMode, setSearchMode] = useState<boolean>(false)
   const [loading, setLoading] = useState<boolean>(false)
+  console.log(owners.length)
+
   // add functions here and to OwnerContext type.
 
   const fixLocalStorage = useCallback((owners: OwnerType[]) => {
@@ -108,6 +110,8 @@ export const useOwnersContext = (initOwners: OwnerType[] = []) => {
     (id: string) => {
       // console.log('store -deleteCard ran')
       const filteredOwners = owners.filter((owner) => id !== owner.landId)
+      console.log(filteredOwners.length)
+
       // if card is deleted in 'searchMode' card in search array is removed.
       // this will not effect the 'deleted' array, because the card is removed from
       // the owners array and added to deleted array.

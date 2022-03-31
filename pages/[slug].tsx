@@ -21,10 +21,12 @@ const Territory: NextPage<Props> = ({ owners }) => {
         <meta httpEquiv="cache-control" content="Private" />
         <meta httpEquiv="Expires" content="2629800" />
       </Head>
+
       <ThemeContext.Provider value={store}>
         <NavBarTerritory />
         <Cards />
       </ThemeContext.Provider>
+
       <footer className={styles.footer}>
         <p>
           &copy;{new Date().getFullYear()} by <span>Bryon Smith</span>
