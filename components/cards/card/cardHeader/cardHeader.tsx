@@ -2,9 +2,9 @@ import type { NextPage } from 'next'
 import { OwnerType } from 'types'
 import styles from './cardHeader.module.scss'
 import { TrashCanSvg } from 'icons'
-import { useOwners, OwnerContextType } from 'store'
-import { useCallback } from 'react'
 import { LazyImg } from 'components'
+import { useSelector, useDispatch } from 'react-redux'
+import { RootState, deleteOwner, setLoading } from 'store'
 
 interface Props {
   owner: OwnerType
@@ -16,6 +16,8 @@ export const CardHeader: NextPage<Props> = ({ owner, i }) => {
   if (process.env.NEXT_PUBLIC_BUILD_TYPE === 'local') {
     basePath = ''
   }
+  const { loading } = useSelector((state: RootState) => state.ownerReducer)
+  const dispatch = useDispatch()
 
   const {
     coordinates: coords,
@@ -26,14 +28,6 @@ export const CardHeader: NextPage<Props> = ({ owner, i }) => {
     thumbnail,
     landId,
   } = owner
-  const { deleteCard, setLoading, loading } = useOwners() as OwnerContextType
-
-  const handleClick = useCallback((id: string) => {
-    setLoading(true)
-    setTimeout(() => deleteCard(id), 0)
-    setTimeout(() => setLoading(false), 0)
-    //eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
 
   return (
     <div
@@ -43,7 +37,7 @@ export const CardHeader: NextPage<Props> = ({ owner, i }) => {
     >
       <TrashCanSvg
         className={styles.trash}
-        onClick={() => handleClick(landId)}
+        onClick={() => dispatch(deleteOwner(landId))}
       />
       <a
         href={

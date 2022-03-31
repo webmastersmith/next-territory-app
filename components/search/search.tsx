@@ -1,43 +1,33 @@
 import type { NextPage } from 'next'
 import { useRef, useCallback, useEffect } from 'react'
 import styles from './search.module.scss'
-import { useOwners, OwnerContextType } from 'store'
 import { X2Svg } from 'icons'
+import { useSelector, useDispatch } from 'react-redux'
+import { RootState, searchOwners, clearSearchMode } from 'store'
 
 export const SearchForm: NextPage = () => {
-  // console.log('search -memo SearchForm ran')
-  const {
-    searchOwners,
-    search,
-    searchMode,
-    setSearchMode,
-    setSearch,
-    loading,
-    setLoading,
-  } = useOwners() as OwnerContextType
+  const dispatch = useDispatch()
+
+  const { searchMode, loading } = useSelector(
+    (state: RootState) => state.ownerReducer
+  )
+
   const inputRef = useRef<HTMLInputElement>(null)
 
   const handleSubmit: React.FormEventHandler = async (event): Promise<void> => {
     event.preventDefault()
     if (inputRef.current) {
-      setSearchMode(true)
-      const bool = searchOwners(inputRef.current.value)
-      // console.log('search -handleSubmit return value:', bool)
+      dispatch(searchOwners(inputRef.current.value))
     }
   }
   const resetSearchInput = useCallback(() => {
-    // only run if change needed
-    if (searchMode || !!search?.[0]) {
-      // console.log('search - resetSearchInput ran')
-      setSearchMode(false)
-      setTimeout(() => setSearch([]), 0)
-    }
+    dispatch(clearSearchMode())
     if (inputRef.current) {
       inputRef.current.value = ''
       inputRef.current.blur()
     }
     //eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchMode, search, inputRef])
+  }, [inputRef.current?.value])
 
   // for the escape key listener -------------------------------------------------
   const escFunction = useCallback(

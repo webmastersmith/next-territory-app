@@ -2,28 +2,31 @@ import type { NextPage } from 'next'
 import { useEffect } from 'react'
 import { Card } from 'components'
 import styles from './cards.module.scss'
-import { useOwners, OwnerContextType } from 'store'
 import { SwitchTransition, CSSTransition } from 'react-transition-group'
+import { useSelector, useDispatch } from 'react-redux'
+import { RootState } from 'store'
+import { setOwners } from 'store/ownerSlice'
+import { OwnerType } from 'types'
 
-export const Cards: NextPage = () => {
-  const { owners, setOwners, search, searchMode } =
-    useOwners() as OwnerContextType
+type Props = {
+  initOwners: OwnerType[]
+}
+export const Cards: NextPage<Props> = ({ initOwners }) => {
+  const dispatch = useDispatch()
+
+  const { owners, searchMode, search } = useSelector(
+    (state: RootState) => state.ownerReducer
+  )
 
   // on initial load, if local storage exist update state. Or create localStorage.
   useEffect(() => {
     // console.log('cards useEffect only on mount ran')
-
-    //does localStorage exist?
+    //localStorage does not exist.
     if (!localStorage.getItem('owners')) {
-      // localStorage does not exist, so add owners and deleted
-      try {
-        localStorage.setItem('owners', JSON.stringify(owners))
-      } catch (e) {
-        console.log('Storage Problem: ', e)
-      }
+      dispatch(setOwners(initOwners))
     } else {
-      // localStorage exist, so update owners and deleted.
-      setOwners(JSON.parse(localStorage.getItem('owners') ?? ''))
+      // localStorage exist, so update owners.
+      dispatch(setOwners(JSON.parse(localStorage.getItem('owners') ?? '')))
     }
     //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])

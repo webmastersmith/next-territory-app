@@ -3,7 +3,8 @@ import Head from 'next/head'
 import { getClient, listCollection, db } from 'utils'
 import { NavBarTerritory, Cards } from 'components'
 import { OwnerType } from 'types'
-import { useOwnersContext, ThemeContext } from 'store'
+import { store } from 'store'
+import { Provider } from 'react-redux'
 import styles from 'styles/[slug].module.scss'
 
 interface Props {
@@ -11,8 +12,6 @@ interface Props {
 }
 
 const Territory: NextPage<Props> = ({ owners }) => {
-  const store = useOwnersContext(owners)
-
   return (
     <div>
       <Head>
@@ -22,10 +21,10 @@ const Territory: NextPage<Props> = ({ owners }) => {
         <meta httpEquiv="Expires" content="2629800" />
       </Head>
 
-      <ThemeContext.Provider value={store}>
+      <Provider store={store}>
         <NavBarTerritory />
-        <Cards />
-      </ThemeContext.Provider>
+        <Cards initOwners={owners} />
+      </Provider>
 
       <footer className={styles.footer}>
         <p>
@@ -49,7 +48,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     // db comes from utils
     const ownersCollection = client.db(db).collection<OwnerType>(slug)
     const owners = await ownersCollection.find({}).toArray()
-    //remove unnecessary cruft. Loop through onwerProperty and extract owner only, discard others.
+    //remove unnecessary cruft. Loop through ownerProperty and extract owner only, discard others.
     const _owners = owners.map((owner) => {
       const { ownerProperty, landId } = owner
       const _ownerProperty = ownerProperty.filter(

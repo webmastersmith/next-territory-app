@@ -2,7 +2,6 @@ import type { NextPage } from 'next'
 import Link from 'next/link'
 import { useState, useEffect, useCallback } from 'react'
 import styles from './navBarTerritory.module.scss'
-import { useOwners, OwnerContextType } from 'store'
 import { SearchForm } from 'components'
 import {
   PrinterSvg,
@@ -14,31 +13,17 @@ import {
   HomeWorkIcon,
 } from 'icons'
 import { OwnerType } from 'types'
+import { useSelector, useDispatch } from 'react-redux'
+import { RootState } from 'store'
+import { setOwners, sortCards } from 'store/ownerSlice'
 
 export const NavBarTerritory: NextPage = () => {
-  const [isSort, setIsSort] = useState<boolean>(false)
   const [myBlob, setMyBlob] = useState('')
   const [mySave, setMySave] = useState('')
-  const {
-    owners,
-    setOwners,
-    fixLocalStorage,
-    searchMode,
-    search,
-    sortNums,
-    loading,
-    setLoading,
-  } = useOwners() as OwnerContextType
-
-  useEffect(() => {
-    //if true num sort
-    if (isSort) {
-      sortNums('number')
-    } else {
-      sortNums()
-    }
-    //eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isSort])
+  const dispatch = useDispatch()
+  const { owners, loading, search, searchMode, isLandIdSort } = useSelector(
+    (state: RootState) => state.ownerReducer
+  )
 
   useEffect(() => {
     setMyBlob(
@@ -56,8 +41,6 @@ export const NavBarTerritory: NextPage = () => {
       )
     )
   }, [searchMode, search, owners])
-
-  useEffect(() => {}, [])
 
   function print(owners: OwnerType[]) {
     return owners.map((owner) => {
@@ -85,13 +68,6 @@ export const NavBarTerritory: NextPage = () => {
     })
   }
 
-  const handleSort = useCallback(() => {
-    setLoading(true)
-    setTimeout(() => setIsSort(!isSort), 0)
-    setTimeout(() => setLoading(false), 0)
-    //eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isSort])
-
   return (
     <header className={styles.header}>
       <div className={styles.titleContainer}>
@@ -114,7 +90,7 @@ export const NavBarTerritory: NextPage = () => {
         <a
           href={myBlob}
           target="_blank"
-          download={`Territory_${owners[0].territoryNumber}.txt`}
+          download={`Territory_${owners?.[0]?.territoryNumber}.txt`}
           rel="noreferrer"
           className="tooltip-bottom"
           data-tooltip="Print Addresses"
@@ -126,7 +102,7 @@ export const NavBarTerritory: NextPage = () => {
           href={mySave}
           target="_blank"
           rel="noreferrer"
-          download={`Territory_${owners[0].territoryNumber}.json`}
+          download={`Territory_${owners?.[0]?.territoryNumber}.json`}
         >
           <SaveSvg />
         </a>
@@ -143,8 +119,7 @@ export const NavBarTerritory: NextPage = () => {
                 e.target.files[0].text().then((data) => {
                   //do something with data.
                   const owners = JSON.parse(data)
-                  setOwners(owners)
-                  fixLocalStorage(owners)
+                  dispatch(setOwners(owners))
                 })
               }
             }}
@@ -158,14 +133,14 @@ export const NavBarTerritory: NextPage = () => {
           </div>
         </div>
 
-        {isSort ? (
+        {isLandIdSort ? (
           <SortAZSvg
-            onClick={handleSort}
+            onClick={() => dispatch(sortCards(false))}
             className={loading ? 'cursorWait' : 'cursorDefault'}
           />
         ) : (
           <Sort09Svg
-            onClick={handleSort}
+            onClick={() => dispatch(sortCards(true))}
             className={loading ? 'cursorWait' : 'cursorDefault'}
           />
         )}
