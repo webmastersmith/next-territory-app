@@ -146,64 +146,65 @@ export const ImageSection: NextPage = () => {
           <source
             type="image/avif"
             sizes="(max-width: 424px) 290px"
-            srcSet={`${basePath}/girl/girl-290w421h.avif 290w, ${basePath}/girl/girl-580w842h.avif 580w, ${basePath}/girl/girl-870w1263h.avif 870w`}
+            srcSet={`${basePath}/girl/girl-290w433h.avif 290w, ${basePath}/girl/girl-580w866h.avif 580w, ${basePath}/girl/girl-870w1299h.avif 870w`}
           />
 
           <source
             type="image/webp"
             sizes="(max-width: 424px) 290px"
-            srcSet={`${basePath}/girl/girl-290w421h.webp 290w, ${basePath}/girl/girl-580w842h.webp 580w, ${basePath}/girl/girl-870w1263h.webp 870w`}
+            srcSet={`${basePath}/girl/girl-290w433h.webp 290w, ${basePath}/girl/girl-580w866h.webp 580w, ${basePath}/girl/girl-870w1299h.webp 870w`}
           />
 
           <source
             type="image/jpg"
             sizes="(max-width: 424px) 290px"
-            srcSet={`${basePath}/girl/girl-290w421h.jpg 290w, ${basePath}/girl/girl-580w842h.jpg 580w, ${basePath}/girl/girl-870w1263h.jpg 870w`}
+            srcSet={`${basePath}/girl/girl-290w433h.jpg 290w, ${basePath}/girl/girl-580w866h.jpg 580w, ${basePath}/girl/girl-870w1299h.jpg 870w`}
           />
 
           <source
             type="image/avif"
             sizes="(max-width: 768px) 400px"
-            srcSet={`${basePath}/girl/girl-400w581h.avif 400w, ${basePath}/girl/girl-800w1162h.avif 800w, ${basePath}/girl/girl-1200w1743h.avif 1200w`}
+            srcSet={`${basePath}/girl/girl-400w597h.avif 400w, ${basePath}/girl/girl-800w1194h.avif 800w, ${basePath}/girl/girl-1200w1791h.avif 1200w`}
           />
 
           <source
             type="image/webp"
             sizes="(max-width: 768px) 400px"
-            srcSet={`${basePath}/girl/girl-400w581h.webp 400w, ${basePath}/girl/girl-800w1162h.webp 800w, ${basePath}/girl/girl-1200w1743h.webp 1200w`}
+            srcSet={`${basePath}/girl/girl-400w597h.webp 400w, ${basePath}/girl/girl-800w1194h.webp 800w, ${basePath}/girl/girl-1200w1791h.webp 1200w`}
           />
 
           <source
             type="image/jpg"
             sizes="(max-width: 768px) 400px"
-            srcSet={`${basePath}/girl/girl-400w581h.jpg 400w, ${basePath}/girl/girl-800w1162h.jpg 800w, ${basePath}/girl/girl-1200w1743h.jpg 1200w`}
+            srcSet={`${basePath}/girl/girl-400w597h.jpg 400w, ${basePath}/girl/girl-800w1194h.jpg 800w, ${basePath}/girl/girl-1200w1791h.jpg 1200w`}
           />
 
           <source
             type="image/avif"
             sizes="(min-width: 769px) 245px"
-            srcSet={`${basePath}/girl/girl-245w356h.avif 245w, ${basePath}/girl/girl-490w712h.avif 490w, ${basePath}/girl/girl-735w1068h.avif 735w`}
+            srcSet={`${basePath}/girl/girl-245w366h.avif 245w, ${basePath}/girl/girl-490w732h.avif 490w, ${basePath}/girl/girl-735w1098h.avif 735w`}
           />
 
           <source
             type="image/webp"
             sizes="(min-width: 769px) 245px"
-            srcSet={`${basePath}/girl/girl-245w356h.webp 245w, ${basePath}/girl/girl-490w712h.webp 490w, ${basePath}/girl/girl-735w1068h.webp 735w`}
+            srcSet={`${basePath}/girl/girl-245w366h.webp 245w, ${basePath}/girl/girl-490w732h.webp 490w, ${basePath}/girl/girl-735w1098h.webp 735w`}
           />
 
           <source
             type="image/jpg"
             sizes="(min-width: 769px) 245px"
-            srcSet={`${basePath}/girl/girl-245w356h.jpg 245w, ${basePath}/girl/girl-490w712h.jpg 490w, ${basePath}/girl/girl-735w1068h.jpg 735w`}
+            srcSet={`${basePath}/girl/girl-245w366h.jpg 245w, ${basePath}/girl/girl-490w732h.jpg 490w, ${basePath}/girl/girl-735w1098h.jpg 735w`}
           />
 
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={`${basePath}/girl/girl-400w581h.jpg`}
+            src={`${basePath}/girl/girl-400w600h.jpg`}
             alt="girl writing letter in quiet spot"
             className={styles.girlImg}
           />
         </picture>
+
         <p className={styles.imgText}>Enjoy More</p>
       </div>
     </div>

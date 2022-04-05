@@ -19,6 +19,10 @@ const Territory: NextPage<Props> = ({ owners }) => {
         <meta httpEquiv="last-modified" content={Date()} />
         <meta httpEquiv="cache-control" content="Private" />
         <meta httpEquiv="Expires" content="2629800" />
+        <meta
+          name="description"
+          content={`Lufkin Territory ${owners[0].territoryNumber}`}
+        />
       </Head>
 
       <Provider store={store}>

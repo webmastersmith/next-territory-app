@@ -16,6 +16,7 @@ const HomePage: NextPage<Props> = ({ files }) => {
       <Head>
         <title>Lufkin Address Helper</title>
         <meta httpEquiv="last-modified" content={Date()} />
+        <meta name="description" content="Lufkin Territory Helper" />
 
         <link
           rel="apple-touch-icon"
