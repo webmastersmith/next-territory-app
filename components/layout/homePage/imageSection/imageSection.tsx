@@ -146,55 +146,55 @@ export const ImageSection: NextPage = () => {
           <source
             type="image/avif"
             sizes="(max-width: 424px) 290px"
-            srcSet={`${basePath}/girl/girl-290w433h.avif 290w, ${basePath}/girl/girl-580w866h.avif 580w, ${basePath}/girl/girl-870w1299h.avif 870w`}
+            srcSet={`${basePath}/girl/girl-290w435h.avif 290w, ${basePath}/girl/girl-580w870h.avif 580w, ${basePath}/girl/girl-870w1305h.avif 870w`}
           />
 
           <source
             type="image/webp"
             sizes="(max-width: 424px) 290px"
-            srcSet={`${basePath}/girl/girl-290w433h.webp 290w, ${basePath}/girl/girl-580w866h.webp 580w, ${basePath}/girl/girl-870w1299h.webp 870w`}
+            srcSet={`${basePath}/girl/girl-290w435h.webp 290w, ${basePath}/girl/girl-580w870h.webp 580w, ${basePath}/girl/girl-870w1305h.webp 870w`}
           />
 
           <source
             type="image/jpg"
             sizes="(max-width: 424px) 290px"
-            srcSet={`${basePath}/girl/girl-290w433h.jpg 290w, ${basePath}/girl/girl-580w866h.jpg 580w, ${basePath}/girl/girl-870w1299h.jpg 870w`}
+            srcSet={`${basePath}/girl/girl-290w435h.jpg 290w, ${basePath}/girl/girl-580w870h.jpg 580w, ${basePath}/girl/girl-870w1305h.jpg 870w`}
           />
 
           <source
             type="image/avif"
             sizes="(max-width: 768px) 400px"
-            srcSet={`${basePath}/girl/girl-400w597h.avif 400w, ${basePath}/girl/girl-800w1194h.avif 800w, ${basePath}/girl/girl-1200w1791h.avif 1200w`}
+            srcSet={`${basePath}/girl/girl-400w600h.avif 400w, ${basePath}/girl/girl-800w1200h.avif 800w, ${basePath}/girl/girl-1200w1800h.avif 1200w`}
           />
 
           <source
             type="image/webp"
             sizes="(max-width: 768px) 400px"
-            srcSet={`${basePath}/girl/girl-400w597h.webp 400w, ${basePath}/girl/girl-800w1194h.webp 800w, ${basePath}/girl/girl-1200w1791h.webp 1200w`}
+            srcSet={`${basePath}/girl/girl-400w600h.webp 400w, ${basePath}/girl/girl-800w1200h.webp 800w, ${basePath}/girl/girl-1200w1800h.webp 1200w`}
           />
 
           <source
             type="image/jpg"
             sizes="(max-width: 768px) 400px"
-            srcSet={`${basePath}/girl/girl-400w597h.jpg 400w, ${basePath}/girl/girl-800w1194h.jpg 800w, ${basePath}/girl/girl-1200w1791h.jpg 1200w`}
+            srcSet={`${basePath}/girl/girl-400w600h.jpg 400w, ${basePath}/girl/girl-800w1200h.jpg 800w, ${basePath}/girl/girl-1200w1800h.jpg 1200w`}
           />
 
           <source
             type="image/avif"
             sizes="(min-width: 769px) 245px"
-            srcSet={`${basePath}/girl/girl-245w366h.avif 245w, ${basePath}/girl/girl-490w732h.avif 490w, ${basePath}/girl/girl-735w1098h.avif 735w`}
+            srcSet={`${basePath}/girl/girl-245w367h.avif 245w, ${basePath}/girl/girl-490w734h.avif 490w, ${basePath}/girl/girl-735w1101h.avif 735w`}
           />
 
           <source
             type="image/webp"
             sizes="(min-width: 769px) 245px"
-            srcSet={`${basePath}/girl/girl-245w366h.webp 245w, ${basePath}/girl/girl-490w732h.webp 490w, ${basePath}/girl/girl-735w1098h.webp 735w`}
+            srcSet={`${basePath}/girl/girl-245w367h.webp 245w, ${basePath}/girl/girl-490w734h.webp 490w, ${basePath}/girl/girl-735w1101h.webp 735w`}
           />
 
           <source
             type="image/jpg"
             sizes="(min-width: 769px) 245px"
-            srcSet={`${basePath}/girl/girl-245w366h.jpg 245w, ${basePath}/girl/girl-490w732h.jpg 490w, ${basePath}/girl/girl-735w1098h.jpg 735w`}
+            srcSet={`${basePath}/girl/girl-245w367h.jpg 245w, ${basePath}/girl/girl-490w734h.jpg 490w, ${basePath}/girl/girl-735w1101h.jpg 735w`}
           />
 
           {/* eslint-disable-next-line @next/next/no-img-element */}
