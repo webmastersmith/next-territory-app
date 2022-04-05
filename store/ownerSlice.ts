@@ -38,7 +38,7 @@ export const ownerSlice = createSlice({
       const text = action.payload.trim()
       if (text === '') {
         state.search = []
-        state.searchMode = false
+        state.searchMode = true
         return
       }
       const searchResults = searchOwnersFn(state.owners, text)
