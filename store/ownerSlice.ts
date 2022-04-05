@@ -38,14 +38,12 @@ export const ownerSlice = createSlice({
       const text = action.payload.trim()
       if (text === '') {
         state.search = []
-        state.searchMode = true
+        state.searchMode = false
         return
       }
       const searchResults = searchOwnersFn(state.owners, text)
-      if (searchResults.length > 0) {
-        state.search = searchResults
-        state.searchMode = true
-      }
+      state.search = searchResults
+      state.searchMode = true
     },
     deleteOwner: (state, action: PayloadAction<string>) => {
       state.owners = state.owners.filter(
